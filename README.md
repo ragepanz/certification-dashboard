@@ -116,14 +116,13 @@ Akses aplikasi melalui browser pada: `http://127.0.0.1:8000`
 
 ---
 
-## Kredensial Login Bawaan
+## Hak Akses Pengguna
 
-| Role | Username / Login Identifier | Password | Hak Akses |
-| :--- | :--- | :--- | :--- |
-| **Superadmin (LCU)** | `admin@lcu.com` | `password` | Akses penuh dashboard monitoring, impor/ekspor, manajemen data, audit trail, dan trigger reminder |
-| **Pegawai (Employee)** | Nomor Pegawai (cth: `533380`, `580791`, `783543`) atau Email | `password` | Akses portal personal untuk melihat sertifikasi miliknya sendiri |
+- **Superadmin (LCU)**: Memiliki hak akses penuh untuk pemantauan dashboard, pengelolaan data sertifikasi, riwayat audit trail, katalog modul, impor/ekspor data, serta pengiriman notifikasi pengingat.
+- **Pegawai (Employee)**: Memiliki hak akses mandiri ke portal personal untuk memantau status masa berlaku sertifikasi miliknya sendiri serta mengunduh berkas bukti sertifikat.
 
 ---
+
 
 ## Menjalankan Scheduler dan Queue Email (Opsional)
 
