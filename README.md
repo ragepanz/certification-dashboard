@@ -72,35 +72,21 @@ npm install && npm run build
 ```
 
 ### 3. Konfigurasi Environment (`.env`)
-Salin file konfigurasi:
+Salin file konfigurasi environment:
 ```bash
 cp .env.example .env
 ```
-Sesuaikan konfigurasi database dan environment:
-```ini
-APP_NAME="LCU Certification Dashboard"
-APP_URL=http://127.0.0.1:8000
-
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=sertification
-DB_USERNAME=root
-DB_PASSWORD=
-
-QUEUE_CONNECTION=database
-```
-
-Generate application key:
+Sesuaikan parameter koneksi database Anda pada file `.env` yang baru dibuat, lalu buat application key:
 ```bash
 php artisan key:generate
 ```
 
 ### 4. Migrasi Database dan Seeding Data Awal
-Buat database bernama `sertification` pada MySQL / phpMyAdmin, kemudian jalankan:
+Siapkan database pada server MySQL Anda, kemudian jalankan perintah migrasi dan seeder:
 ```bash
 php artisan migrate --seed
 ```
+
 
 ### 5. Buat Symlink Storage Publik
 Untuk menghubungkan penyimpanan berkas dokumen sertifikat:
