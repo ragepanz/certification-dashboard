@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Mail\CertificationReminderMail;
 use App\Models\Certification;
 use App\Models\ReminderLog;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
@@ -20,7 +21,7 @@ class SendCertificationRemindersCommand extends Command
     /**
      * The console command description.
      */
-    protected $description = 'Kirim email pengingat otomatis untuk sertifikasi yang akan expired (H-5) atau sudah expired (H+5)';
+    protected $description = 'Kirim email pengingat otomatis untuk sertifikasi yang akan expired atau sudah expired berdasarkan pengaturan reminder di dashboard';
 
     /**
      * Execute the console command.
@@ -30,44 +31,39 @@ class SendCertificationRemindersCommand extends Command
         $today = Carbon::today();
         $this->info("Memulai pengecekan reminder sertifikasi per tanggal: " . $today->format('Y-m-d'));
 
-        // 1. Pengecekan H-60 (Sisa 60 hari lagi / 2 bulan)
-        $hMinus60Date = $today->copy()->addDays(60)->format('Y-m-d');
-        $certsHMinus60 = Certification::with('user')
-            ->whereDate('expiry_date', $hMinus60Date)
-            ->get();
-        $this->info("Ditemukan {$certsHMinus60->count()} sertifikasi pada H-60 ({$hMinus60Date}).");
-        foreach ($certsHMinus60 as $cert) {
-            $this->processReminder($cert, 'H-60');
+        $daysBefore = Setting::getDayList('reminder_days_before', [60, 30, 5]);
+        $daysAfter = Setting::getDayList('reminder_days_after', [5]);
+
+        $this->info("Pengaturan aktif — H-: " . implode(', ', $daysBefore) . " | H+: " . implode(', ', $daysAfter));
+
+        foreach ($daysBefore as $offset) {
+            $targetDate = $today->copy()->addDays($offset)->format('Y-m-d');
+            $certs = Certification::with('user')
+                ->whereDate('expiry_date', $targetDate)
+                ->where(function ($q) {
+                    // Sertifikat yang masih Valid menurut Excel tidak perlu diingatkan
+                    $q->whereNull('excel_status')->orWhere('excel_status', '!=', 'valid');
+                })
+                ->get();
+            $this->info("Ditemukan {$certs->count()} sertifikasi pada H-{$offset} ({$targetDate}).");
+            foreach ($certs as $cert) {
+                $this->processReminder($cert, "H-{$offset}");
+            }
         }
 
-        // 2. Pengecekan H-30 (Sisa 30 hari lagi / 1 bulan)
-        $hMinus30Date = $today->copy()->addDays(30)->format('Y-m-d');
-        $certsHMinus30 = Certification::with('user')
-            ->whereDate('expiry_date', $hMinus30Date)
-            ->get();
-        $this->info("Ditemukan {$certsHMinus30->count()} sertifikasi pada H-30 ({$hMinus30Date}).");
-        foreach ($certsHMinus30 as $cert) {
-            $this->processReminder($cert, 'H-30');
-        }
-
-        // 3. Pengecekan H-5 (Sisa 5 hari lagi)
-        $hMinus5Date = $today->copy()->addDays(5)->format('Y-m-d');
-        $certsHMinus5 = Certification::with('user')
-            ->whereDate('expiry_date', $hMinus5Date)
-            ->get();
-        $this->info("Ditemukan {$certsHMinus5->count()} sertifikasi pada H-5 ({$hMinus5Date}).");
-        foreach ($certsHMinus5 as $cert) {
-            $this->processReminder($cert, 'H-5');
-        }
-
-        // 4. Pengecekan H+5 (Sudah expired 5 hari lalu)
-        $hPlus5Date = $today->copy()->subDays(5)->format('Y-m-d');
-        $certsHPlus5 = Certification::with('user')
-            ->whereDate('expiry_date', $hPlus5Date)
-            ->get();
-        $this->info("Ditemukan {$certsHPlus5->count()} sertifikasi pada H+5 ({$hPlus5Date}).");
-        foreach ($certsHPlus5 as $cert) {
-            $this->processReminder($cert, 'H+5');
+        foreach ($daysAfter as $offset) {
+            $targetDate = $today->copy()->subDays($offset)->format('Y-m-d');
+            $certs = Certification::with('user')
+                ->whereDate('expiry_date', $targetDate)
+                ->where(function ($q) {
+                    // Sertifikat yang masih Valid menurut Excel tidak perlu diingatkan
+                    $q->whereNull('excel_status')->orWhere('excel_status', '!=', 'valid');
+                })
+                ->get();
+            $this->info("Ditemukan {$certs->count()} sertifikasi pada H+{$offset} ({$targetDate}).");
+            foreach ($certs as $cert) {
+                $this->processReminder($cert, "H+{$offset}");
+            }
         }
 
         $this->info("Proses pengiriman reminder sertifikasi selesai!");

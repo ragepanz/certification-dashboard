@@ -74,8 +74,7 @@ class CertificationController extends Controller
         $validated = $request->validate([
             'user_id' => ['required', 'exists:users,id'],
             'certificate_name' => ['required', 'string', 'max:255'],
-            'issue_date' => ['required', 'date'],
-            'expiry_date' => ['required', 'date', 'after:issue_date'],
+            'expiry_date' => ['required', 'date'],
             'certificate_file' => ['nullable', 'file', 'mimes:pdf,jpg,jpeg,png', 'max:10240'],
         ]);
 
@@ -104,8 +103,7 @@ class CertificationController extends Controller
     {
         $validated = $request->validate([
             'certificate_name' => ['required', 'string', 'max:255'],
-            'issue_date' => ['required', 'date'],
-            'expiry_date' => ['required', 'date', 'after:issue_date'],
+            'expiry_date' => ['required', 'date'],
             'renewal_notes' => ['nullable', 'string', 'max:1000'],
             'certificate_file' => ['nullable', 'file', 'mimes:pdf,jpg,jpeg,png', 'max:10240'],
         ]);
@@ -124,7 +122,6 @@ class CertificationController extends Controller
         DB::transaction(function () use ($certification, $validated, $oldExpiry, $newExpiry) {
             $updateData = [
                 'certificate_name' => $validated['certificate_name'],
-                'issue_date' => $validated['issue_date'],
                 'expiry_date' => $validated['expiry_date'],
             ];
 
@@ -225,7 +222,6 @@ class CertificationController extends Controller
                 'Email',
                 'Unit',
                 'Nama Sertifikasi',
-                'Tanggal Terbit (YYYY-MM-DD)',
                 'Tanggal Expired (YYYY-MM-DD)',
             ]);
 
@@ -236,7 +232,6 @@ class CertificationController extends Controller
                 'diahyani.putri@gmf-aeroasia.co.id',
                 'JKTTLF',
                 'Human Factor',
-                '2022-07-11',
                 '2024-07-11',
             ]);
             fputcsv($file, [
@@ -245,7 +240,6 @@ class CertificationController extends Controller
                 'taufiq.hidayat@gmf-aeroasia.co.id',
                 'JKTTLF-5',
                 'Safety Management System',
-                '2023-01-15',
                 '2025-01-15',
             ]);
 
@@ -302,7 +296,6 @@ class CertificationController extends Controller
                 'Email',
                 'Unit',
                 'Nama Sertifikasi',
-                'Tanggal Terbit',
                 'Tanggal Expired',
                 'Sisa Hari',
                 'Status',
@@ -315,7 +308,6 @@ class CertificationController extends Controller
                     $cert->user->email ?? '-',
                     $cert->user->unit ?? '-',
                     $cert->certificate_name,
-                    $cert->issue_date->format('Y-m-d'),
                     $cert->expiry_date->format('Y-m-d'),
                     $cert->days_remaining,
                     $cert->status === 'expired' ? 'Expired' : ($cert->status === 'warning' ? 'Akan Expired' : 'Aktif'),
@@ -422,15 +414,14 @@ class CertificationController extends Controller
         DB::beginTransaction();
         try {
             while (($row = fgetcsv($handle, 1000, ',')) !== false) {
-                if (count($row) < 7) continue;
+                if (count($row) < 6) continue;
 
                 $empNumber = trim($row[0]);
                 $empName = trim($row[1]);
                 $empEmail = trim($row[2]);
                 $empUnit = trim($row[3]);
                 $certName = trim($row[4]);
-                $issueDate = trim($row[5]);
-                $expiryDate = trim($row[6]);
+                $expiryDate = trim($row[5]);
 
                 if (!$empNumber || !$certName || !$expiryDate) continue;
 
@@ -452,13 +443,11 @@ class CertificationController extends Controller
                     ]
                 );
 
-                // Check and parse dates
-                $parsedIssue = null;
+                // Check and parse dates - only expiry date is required
                 $parsedExpiry = null;
 
                 try {
-                    $parsedIssue = $issueDate ? Carbon::parse($issueDate)->format('Y-m-d') : Carbon::now()->format('Y-m-d');
-                    $parsedExpiry = Carbon::parse($expiryDate)->format('Y-m-d');
+                    $parsedExpiry = $expiryDate ? Carbon::parse($expiryDate)->format('Y-m-d') : null;
                 } catch (\Exception $de) {
                     continue;
                 }
@@ -470,7 +459,6 @@ class CertificationController extends Controller
                         'certificate_name' => $certName,
                     ],
                     [
-                        'issue_date' => $parsedIssue,
                         'expiry_date' => $parsedExpiry,
                     ]
                 );

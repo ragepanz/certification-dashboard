@@ -58,10 +58,6 @@
                     <td><strong>{{ $certification->certificate_name }}</strong></td>
                 </tr>
                 <tr>
-                    <td>Tanggal Terbit</td>
-                    <td>{{ $certification->issue_date->format('d F Y') }}</td>
-                </tr>
-                <tr>
                     <td>Tanggal Expired</td>
                     <td><strong style="color: {{ $type === 'H+5' ? '#e11d48' : '#d97706' }};">{{ $certification->expiry_date->format('d F Y') }}</strong></td>
                 </tr>

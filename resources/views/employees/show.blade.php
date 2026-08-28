@@ -73,15 +73,20 @@
                             </div>
 
                             <div class="space-y-1 text-xs text-slate-300">
-                                <p class="text-slate-400">Terbit: <span class="text-slate-200">{{ $cert->issue_date->format('d/m/Y') }}</span></p>
-                                <p class="text-slate-400">Expired: <span class="font-semibold {{ $days < 0 ? 'text-rose-400' : ($days <= 30 ? 'text-amber-400' : 'text-slate-200') }}">{{ $cert->expiry_date->format('d/m/Y') }}</span></p>
+                                <p class="text-slate-400">Expired: <span class="font-semibold {{ $cert->status === 'expired' ? 'text-rose-400' : ($cert->status === 'warning' ? 'text-amber-400' : 'text-slate-200') }}">{{ $cert->expiry_date->format('d/m/Y') }}</span></p>
                             </div>
                         </div>
 
                         <div class="mt-4 pt-3 border-t border-slate-700/60 flex items-center justify-between text-xs">
-                            <span class="{{ $days < 0 ? 'text-rose-400 font-bold' : ($days <= 30 ? 'text-amber-400 font-bold' : 'text-slate-400') }}">
-                                {{ $days < 0 ? 'Lewat ' . abs($days) . ' hari' : 'Sisa ' . $days . ' hari' }}
-                            </span>
+                            @if($cert->overridden_by_excel)
+                                <span class="{{ $cert->status === 'expired' ? 'text-rose-400 font-bold' : ($cert->status === 'warning' ? 'text-amber-400 font-bold' : 'text-emerald-400 font-bold') }}">
+                                    {{ $cert->status === 'expired' ? 'Expired (Excel)' : ($cert->status === 'warning' ? 'Akan Expired (Excel)' : 'Valid (Excel)') }}
+                                </span>
+                            @else
+                                <span class="{{ $days < 0 ? 'text-rose-400 font-bold' : ($days <= 30 ? 'text-amber-400 font-bold' : 'text-slate-400') }}">
+                                    {{ $days < 0 ? 'Lewat ' . abs($days) . ' hari' : 'Sisa ' . $days . ' hari' }}
+                                </span>
+                            @endif
                             <div class="flex items-center gap-1.5">
                                 <a href="{{ route('certifications.show', $cert) }}" class="p-1 text-slate-400 hover:text-white" title="Detail & Riwayat">
                                     <i data-lucide="eye" class="w-4 h-4"></i>

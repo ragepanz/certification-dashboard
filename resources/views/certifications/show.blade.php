@@ -35,17 +35,29 @@
                 @if($certification->status === 'expired')
                     <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-rose-500/15 text-rose-400 border border-rose-500/30">
                         <i data-lucide="alert-triangle" class="w-4 h-4"></i>
-                        Status: Expired (Lewat {{ abs($certification->days_remaining) }} Hari)
+                        @if($certification->overridden_by_excel)
+                            Status: Expired (Excel)
+                        @else
+                            Status: Expired (Lewat {{ abs($certification->days_remaining) }} Hari)
+                        @endif
                     </span>
                 @elseif($certification->status === 'warning')
                     <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">
                         <i data-lucide="clock" class="w-4 h-4"></i>
-                        Status: Akan Expired (Sisa {{ $certification->days_remaining }} Hari)
+                        @if($certification->overridden_by_excel)
+                            Status: Akan Expired (Excel)
+                        @else
+                            Status: Akan Expired (Sisa {{ $certification->days_remaining }} Hari)
+                        @endif
                     </span>
                 @else
                     <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
                         <i data-lucide="check-circle" class="w-4 h-4"></i>
-                        Status: Aktif (Sisa {{ $certification->days_remaining }} Hari)
+                        @if($certification->overridden_by_excel)
+                            Status: Valid (Excel)
+                        @else
+                            Status: Aktif (Sisa {{ $certification->days_remaining }} Hari)
+                        @endif
                     </span>
                 @endif
             </div>
@@ -77,20 +89,22 @@
             <div class="p-5 rounded-2xl bg-slate-800/50 border border-slate-700/60 space-y-3 text-xs">
                 <h4 class="font-bold text-white uppercase tracking-wider text-[11px] text-slate-400 mb-2">Detail Masa Berlaku</h4>
                 <div class="flex justify-between">
-                    <span class="text-slate-400">Tanggal Terbit:</span>
-                    <span class="text-slate-200 font-medium">{{ $certification->issue_date->format('d F Y') }}</span>
-                </div>
-                <div class="flex justify-between">
                     <span class="text-slate-400">Tanggal Expired:</span>
-                    <strong class="{{ $certification->days_remaining < 0 ? 'text-rose-400' : 'text-emerald-400' }}">
+                    <strong class="{{ $certification->status === 'expired' ? 'text-rose-400' : 'text-emerald-400' }}">
                         {{ $certification->expiry_date->format('d F Y') }}
                     </strong>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-slate-400">Sisa Hari Menuju Expired:</span>
-                    <span class="font-bold {{ $certification->days_remaining < 0 ? 'text-rose-400' : ($certification->days_remaining <= 60 ? 'text-amber-400' : 'text-slate-200') }}">
-                        {{ $certification->days_remaining }} hari
-                    </span>
+                    @if($certification->overridden_by_excel)
+                        <span class="font-bold {{ $certification->status === 'expired' ? 'text-rose-400' : ($certification->status === 'warning' ? 'text-amber-400' : 'text-emerald-400') }}">
+                            {{ $certification->status === 'expired' ? 'Expired (Excel)' : ($certification->status === 'warning' ? 'Akan Expired (Excel)' : 'Valid (Excel)') }}
+                        </span>
+                    @else
+                        <span class="font-bold {{ $certification->days_remaining < 0 ? 'text-rose-400' : ($certification->days_remaining <= 60 ? 'text-amber-400' : 'text-slate-200') }}">
+                            {{ $certification->days_remaining }} hari
+                        </span>
+                    @endif
                 </div>
                 <div class="flex justify-between">
                     <span class="text-slate-400">Didaftarkan Pada:</span>

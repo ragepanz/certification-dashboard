@@ -54,7 +54,7 @@
             </div>
             <div class="flex items-center gap-1.5 text-xs text-emerald-400 mt-1">
                 <i data-lucide="check" class="w-3.5 h-3.5"></i>
-                <span>{{ $activeCount }} aktif (>60 hr)</span>
+                <span>{{ $activeCount }} aktif / permanen</span>
             </div>
         </div>
 
@@ -268,7 +268,8 @@
                 <div>
                     <select name="status" class="w-full px-3 py-2 bg-slate-800/70 border border-slate-700/80 rounded-xl text-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         <option value="">Semua Status</option>
-                        <option value="active" {{ ($filters['status'] ?? '') === 'active' ? 'selected' : '' }}>Aktif (> 60 hari)</option>
+                        <option value="active" {{ ($filters['status'] ?? '') === 'active' ? 'selected' : '' }}>Aktif / Permanen</option>
+                        <option value="permanent" {{ ($filters['status'] ?? '') === 'permanent' ? 'selected' : '' }}>Permanen (Tanpa Expired)</option>
                         <option value="warning" {{ ($filters['status'] ?? '') === 'warning' ? 'selected' : '' }}>Akan Expired (≤ 60 hari)</option>
                         <option value="expired" {{ ($filters['status'] ?? '') === 'expired' ? 'selected' : '' }}>Expired (Lewat waktu)</option>
                     </select>
@@ -314,7 +315,6 @@
                         <th class="py-3.5 px-4">Pegawai</th>
                         <th class="py-3.5 px-4">Unit</th>
                         <th class="py-3.5 px-4">Nama Sertifikasi</th>
-                        <th class="py-3.5 px-4">Tanggal Terbit</th>
                         <th class="py-3.5 px-4">Tanggal Expired</th>
                         <th class="py-3.5 px-4">Sisa Waktu</th>
                         <th class="py-3.5 px-4">Status</th>
@@ -347,13 +347,32 @@
                                 {{ $cert->certificate_name }}
                             </td>
                             <td class="py-3 px-4 text-slate-300 text-xs">
-                                {{ $cert->issue_date->format('d M Y') }}
-                            </td>
-                            <td class="py-3 px-4 font-bold text-xs {{ $days < 0 ? 'text-rose-400' : ($days <= 60 ? 'text-amber-400' : 'text-slate-100') }}">
                                 {{ $cert->expiry_date->format('d M Y') }}
                             </td>
                             <td class="py-3 px-4 text-xs">
-                                @if($days < 0)
+                                @if($days === null)
+                                    <span class="inline-flex items-center gap-1 font-medium text-slate-400">
+                                        <i data-lucide="infinity" class="w-3.5 h-3.5"></i>
+                                        Permanen (Tanpa Expired)
+                                    </span>
+                                @elseif($cert->overridden_by_excel)
+                                    @if($cert->status === 'active')
+                                        <span class="inline-flex items-center gap-1 font-bold text-emerald-400">
+                                            <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+                                            Valid (Excel)
+                                        </span>
+                                    @elseif($cert->status === 'warning')
+                                        <span class="inline-flex items-center gap-1 font-bold text-amber-400">
+                                            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                            Akan Expired (Excel)
+                                        </span>
+                                    @else
+                                        <span class="inline-flex items-center gap-1 font-bold text-rose-400">
+                                            <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+                                            Expired (Excel)
+                                        </span>
+                                    @endif
+                                @elseif($days < 0)
                                     <span class="inline-flex items-center gap-1 font-bold text-rose-400">
                                         <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
                                         Lewat {{ abs($days) }} hari
@@ -374,7 +393,11 @@
                                 @endif
                             </td>
                             <td class="py-3 px-4">
-                                @if($cert->status === 'expired')
+                                @if($days === null)
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
+                                        Permanen
+                                    </span>
+                                @elseif($cert->status === 'expired')
                                     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-rose-500/15 text-rose-400 border border-rose-500/30">
                                         Expired
                                     </span>

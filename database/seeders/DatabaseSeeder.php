@@ -58,16 +58,18 @@ class DatabaseSeeder extends Seeder
 
                 foreach ($empData['certs'] as $certItem) {
                     try {
-                        $expiry = Carbon::parse($certItem['expiry_date']);
-                        // Assume standard issue date is 2 years before expiry if not specified
-                        $issueDate = (clone $expiry)->subYears(2);
+                        $expiryDate = $certItem['expiry_date'] ? Carbon::parse($certItem['expiry_date'])->format('Y-m-d') : null;
 
-                        Certification::create([
-                            'user_id' => $user->id,
-                            'certificate_name' => $certItem['name'],
-                            'issue_date' => $issueDate->format('Y-m-d'),
-                            'expiry_date' => $expiry->format('Y-m-d'),
-                        ]);
+                        Certification::updateOrCreate(
+                            [
+                                'user_id' => $user->id,
+                                'certificate_name' => $certItem['name'],
+                            ],
+                            [
+                                'expiry_date' => $expiryDate,
+                                'excel_status' => $certItem['status'] ?? null,
+                            ]
+                        );
                     } catch (\Exception $e) {
                         continue;
                     }

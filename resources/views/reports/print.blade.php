@@ -47,9 +47,8 @@
                 <th style="width: 12%;">No. Pegawai</th>
                 <th style="width: 20%;">Nama Pegawai</th>
                 <th style="width: 14%;">Unit Kerja</th>
-                <th style="width: 24%;">Nama Sertifikasi</th>
-                <th style="width: 12%;">Tanggal Terbit</th>
-                <th style="width: 12%;">Tanggal Expired</th>
+                <th style="width: 28%;">Nama Sertifikasi</th>
+                <th style="width: 16%;">Tanggal Expired</th>
                 <th style="width: 12%;">Status</th>
             </tr>
         </thead>
@@ -64,10 +63,17 @@
                     <td><strong>{{ $cert->user->name ?? '-' }}</strong></td>
                     <td>{{ $cert->user->unit ?? '-' }}</td>
                     <td>{{ $cert->certificate_name }}</td>
-                    <td>{{ $cert->issue_date->format('d/m/Y') }}</td>
                     <td><strong>{{ $cert->expiry_date->format('d/m/Y') }}</strong></td>
                     <td>
-                        @if($cert->status === 'expired')
+                        @if($cert->overridden_by_excel)
+                            @if($cert->status === 'expired')
+                                <span class="status-expired">Expired (Excel)</span>
+                            @elseif($cert->status === 'warning')
+                                <span class="status-warning">Akan Expired (Excel)</span>
+                            @else
+                                <span class="status-active">Valid (Excel)</span>
+                            @endif
+                        @elseif($cert->status === 'expired')
                             <span class="status-expired">Expired ({{ $days }} hr)</span>
                         @elseif($cert->status === 'warning')
                             <span class="status-warning">Akan Expired ({{ $days }} hr)</span>

@@ -9,7 +9,7 @@
             </div>
             <div>
                 <h3 class="text-base font-bold text-white">Formulir Data Sertifikasi</h3>
-                <p class="text-xs text-slate-400">Pastikan tanggal terbit dan expired diisi dengan akurat</p>
+                <p class="text-xs text-slate-400">Pastikan tanggal expired diisi dengan akurat</p>
             </div>
         </div>
 
@@ -39,22 +39,12 @@
                        class="w-full px-4 py-3 bg-slate-800/70 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                        Tanggal Terbit <span class="text-rose-400">*</span>
-                    </label>
-                    <input type="date" name="issue_date" value="{{ old('issue_date', date('Y-m-d')) }}" required
-                           class="w-full px-4 py-3 bg-slate-800/70 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                        Tanggal Expired / Masa Berlaku <span class="text-rose-400">*</span>
-                    </label>
-                    <input type="date" name="expiry_date" value="{{ old('expiry_date') }}" required
-                           class="w-full px-4 py-3 bg-slate-800/70 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                    Tanggal Expired / Masa Berlaku <span class="text-rose-400">*</span>
+                </label>
+                <input type="date" name="expiry_date" value="{{ old('expiry_date') }}" required
+                       class="w-full px-4 py-3 bg-slate-800/70 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
 
             <div>

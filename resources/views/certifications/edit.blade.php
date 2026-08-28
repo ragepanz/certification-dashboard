@@ -28,15 +28,27 @@
                     <div class="mt-1">
                         @if($certification->status === 'expired')
                             <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30">
-                                Expired (Lewat {{ abs($certification->days_remaining) }} hr)
+                                @if($certification->overridden_by_excel)
+                                    Expired (Excel)
+                                @else
+                                    Expired (Lewat {{ abs($certification->days_remaining) }} hr)
+                                @endif
                             </span>
                         @elseif($certification->status === 'warning')
                             <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                                Akan Expired (Sisa {{ $certification->days_remaining }} hr)
+                                @if($certification->overridden_by_excel)
+                                    Akan Expired (Excel)
+                                @else
+                                    Akan Expired (Sisa {{ $certification->days_remaining }} hr)
+                                @endif
                             </span>
                         @else
                             <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                                Aktif (Sisa {{ $certification->days_remaining }} hr)
+                                @if($certification->overridden_by_excel)
+                                    Valid (Excel)
+                                @else
+                                    Aktif (Sisa {{ $certification->days_remaining }} hr)
+                                @endif
                             </span>
                         @endif
                     </div>
@@ -51,23 +63,13 @@
                        class="w-full px-4 py-3 bg-slate-800/70 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                        Tanggal Terbit <span class="text-rose-400">*</span>
-                    </label>
-                    <input type="date" name="issue_date" value="{{ old('issue_date', $certification->issue_date->format('Y-m-d')) }}" required
-                           class="w-full px-4 py-3 bg-slate-800/70 border border-slate-700/80 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                        Tanggal Expired / Masa Berlaku Baru <span class="text-rose-400">*</span>
-                    </label>
-                    <input type="date" name="expiry_date" value="{{ old('expiry_date', $certification->expiry_date->format('Y-m-d')) }}" required
-                           class="w-full px-4 py-3 bg-slate-800/70 border border-indigo-500/50 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                    <p class="text-[11px] text-slate-400 mt-1">Tanggal expired lama: <span class="text-amber-400 font-semibold">{{ $certification->expiry_date->format('d F Y') }}</span></p>
-                </div>
+            <div>
+                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                    Tanggal Expired / Masa Berlaku Baru <span class="text-rose-400">*</span>
+                </label>
+                <input type="date" name="expiry_date" value="{{ old('expiry_date', $certification->expiry_date->format('Y-m-d')) }}" required
+                       class="w-full px-4 py-3 bg-slate-800/70 border border-indigo-500/50 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <p class="text-[11px] text-slate-400 mt-1">Tanggal expired lama: <span class="text-amber-400 font-semibold">{{ $certification->expiry_date->format('d F Y') }}</span></p>
             </div>
 
             <div>

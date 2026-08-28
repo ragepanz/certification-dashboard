@@ -101,7 +101,6 @@
                     <tr class="border-b border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider bg-slate-900/60">
                         <th class="py-3.5 px-4">Pegawai</th>
                         <th class="py-3.5 px-4">Unit Kerja</th>
-                        <th class="py-3.5 px-4">Tanggal Terbit</th>
                         <th class="py-3.5 px-4">Tanggal Expired</th>
                         <th class="py-3.5 px-4">Sisa Waktu</th>
                         <th class="py-3.5 px-4">Status</th>
@@ -130,14 +129,28 @@
                                     {{ $cert->user->unit ?? '-' }}
                                 </span>
                             </td>
-                            <td class="py-3 px-4 text-slate-300 text-xs">
-                                {{ $cert->issue_date->format('d M Y') }}
-                            </td>
-                            <td class="py-3 px-4 font-bold text-xs {{ $days < 0 ? 'text-rose-400' : ($days <= 60 ? 'text-amber-400' : 'text-slate-100') }}">
+                            <td class="py-3 px-4 font-bold text-xs {{ $cert->status === 'expired' ? 'text-rose-400' : ($cert->status === 'warning' ? 'text-amber-400' : 'text-slate-100') }}">
                                 {{ $cert->expiry_date->format('d M Y') }}
                             </td>
                             <td class="py-3 px-4 text-xs">
-                                @if($days < 0)
+                                @if($cert->overridden_by_excel)
+                                    @if($cert->status === 'active')
+                                        <span class="inline-flex items-center gap-1 font-bold text-emerald-400">
+                                            <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+                                            Valid (Excel)
+                                        </span>
+                                    @elseif($cert->status === 'warning')
+                                        <span class="inline-flex items-center gap-1 font-bold text-amber-400">
+                                            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                            Akan Expired (Excel)
+                                        </span>
+                                    @else
+                                        <span class="inline-flex items-center gap-1 font-bold text-rose-400">
+                                            <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+                                            Expired (Excel)
+                                        </span>
+                                    @endif
+                                @elseif($days < 0)
                                     <span class="inline-flex items-center gap-1 font-bold text-rose-400">
                                         <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
                                         Lewat {{ abs($days) }} hari

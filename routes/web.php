@@ -5,6 +5,8 @@ use App\Http\Controllers\CertificationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Redirect root to login / dashboard
@@ -38,6 +40,13 @@ Route::middleware('auth')->group(function () {
 
         // Employee Management
         Route::resource('employees', EmployeeController::class);
+
+        // User / Akun Management
+        Route::resource('users', UserController::class);
+
+        // Reminder Settings
+        Route::get('/settings/reminder', [SettingController::class, 'reminder'])->name('settings.reminder');
+        Route::put('/settings/reminder', [SettingController::class, 'updateReminder'])->name('settings.reminder.update');
 
         // Certificate Types Directory & Analytics
         Route::get('/certificate-types', [\App\Http\Controllers\CertificateTypeController::class, 'index'])->name('certificate-types.index');

@@ -91,7 +91,6 @@
                         <th class="py-3.5 px-4">Nama Pegawai</th>
                         <th class="py-3.5 px-4">Unit</th>
                         <th class="py-3.5 px-4">Nama Sertifikasi</th>
-                        <th class="py-3.5 px-4">Tanggal Terbit</th>
                         <th class="py-3.5 px-4">Tanggal Expired</th>
                         <th class="py-3.5 px-4">Sisa Waktu</th>
                         <th class="py-3.5 px-4">Status</th>
@@ -108,12 +107,17 @@
                             <td class="py-3 px-4 font-bold text-white text-xs">{{ $cert->user->name ?? '-' }}</td>
                             <td class="py-3 px-4 text-slate-300 text-xs">{{ $cert->user->unit ?? '-' }}</td>
                             <td class="py-3 px-4 font-semibold text-slate-200 text-xs">{{ $cert->certificate_name }}</td>
-                            <td class="py-3 px-4 text-slate-300 text-xs">{{ $cert->issue_date->format('d M Y') }}</td>
-                            <td class="py-3 px-4 font-bold text-xs {{ $days < 0 ? 'text-rose-400' : ($days <= 30 ? 'text-amber-400' : 'text-slate-100') }}">
-                                {{ $cert->expiry_date->format('d M Y') }}
-                            </td>
+                            <td class="py-3 px-4 text-slate-300 text-xs">{{ $cert->expiry_date->format('d M Y') }}</td>
                             <td class="py-3 px-4 text-xs">
-                                @if($days < 0)
+                                @if($cert->overridden_by_excel)
+                                    @if($cert->status === 'active')
+                                        <span class="text-emerald-400 font-bold">Valid (Excel)</span>
+                                    @elseif($cert->status === 'warning')
+                                        <span class="text-amber-400 font-bold">Akan Expired (Excel)</span>
+                                    @else
+                                        <span class="text-rose-400 font-bold">Expired (Excel)</span>
+                                    @endif
+                                @elseif($days < 0)
                                     <span class="text-rose-400 font-bold">Lewat {{ abs($days) }} hari</span>
                                 @elseif($days == 0)
                                     <span class="text-rose-400 font-bold">Hari ini</span>

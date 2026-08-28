@@ -76,7 +76,7 @@
                 @php
                     $days = $cert->days_remaining;
                 @endphp
-                <div class="p-4 rounded-xl bg-slate-800/50 border {{ $days < 0 ? 'border-rose-500/40 bg-rose-950/10' : ($days <= 60 ? 'border-amber-500/40 bg-amber-950/10' : 'border-slate-700/60') }} flex flex-col justify-between hover:bg-slate-800/90 transition-all">
+                <div class="p-4 rounded-xl bg-slate-800/50 border {{ $cert->status === 'expired' ? 'border-rose-500/40 bg-rose-950/10' : ($cert->status === 'warning' ? 'border-amber-500/40 bg-amber-950/10' : 'border-slate-700/60') }} flex flex-col justify-between hover:bg-slate-800/90 transition-all">
                     <div>
                         <div class="flex items-start justify-between gap-2 mb-2">
                             <h5 class="text-sm font-bold text-white leading-snug truncate" title="{{ $cert->certificate_name }}">{{ $cert->certificate_name }}</h5>
@@ -97,13 +97,9 @@
 
                         <div class="space-y-1 text-xs text-slate-300">
                             <div class="flex items-center justify-between">
-                                <span class="text-slate-400">Terbit:</span>
-                                <span class="font-medium text-slate-200">{{ $cert->issue_date->format('d M Y') }}</span>
-                            </div>
-                            <div class="flex items-center justify-between">
                                 <span class="text-slate-400">Expired:</span>
-                                <span class="font-bold {{ $days < 0 ? 'text-rose-400' : ($days <= 60 ? 'text-amber-400' : 'text-slate-100') }}">
-                                    {{ $cert->expiry_date->format('d M Y') }}
+                                <span class="font-bold {{ $cert->status === 'expired' ? 'text-rose-400' : ($cert->status === 'warning' ? 'text-amber-400' : 'text-slate-100') }}">
+                                    {{ $cert->expiry_date ? $cert->expiry_date->format('d M Y') : 'Permanent / Tidak Berakhir' }}
                                 </span>
                             </div>
                         </div>
@@ -111,7 +107,29 @@
 
                     <div class="mt-3 pt-2 border-t border-slate-700/60 flex items-center justify-between text-xs">
                         <span class="text-slate-400 text-xs">Sisa Masa:</span>
-                        @if($days < 0)
+                        @if($cert->expiry_date === null)
+                            <span class="font-bold text-emerald-400 flex items-center gap-1">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                Permanent
+                            </span>
+                        @elseif($cert->overridden_by_excel)
+                            @if($cert->status === 'active')
+                                <span class="font-bold text-emerald-400 flex items-center gap-1">
+                                    <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
+                                    Valid (Excel)
+                                </span>
+                            @elseif($cert->status === 'warning')
+                                <span class="font-bold text-amber-400 flex items-center gap-1">
+                                    <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                                    Akan Expired (Excel)
+                                </span>
+                            @else
+                                <span class="font-bold text-rose-400 flex items-center gap-1">
+                                    <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
+                                    Expired (Excel)
+                                </span>
+                            @endif
+                        @elseif($days < 0)
                             <span class="font-bold text-rose-400 flex items-center gap-1">
                                 <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
                                 Lewat {{ abs($days) }} hari

@@ -123,7 +123,6 @@
                         <th class="py-3.5 px-4">Pegawai</th>
                         <th class="py-3.5 px-4">Unit</th>
                         <th class="py-3.5 px-4">Nama Sertifikasi</th>
-                        <th class="py-3.5 px-4">Tanggal Terbit</th>
                         <th class="py-3.5 px-4">Tanggal Expired</th>
                         <th class="py-3.5 px-4">Status</th>
                         <th class="py-3.5 px-4 text-right">Aksi</th>
@@ -154,13 +153,14 @@
                             <td class="py-3 px-4 font-semibold text-indigo-300 text-xs">
                                 {{ $cert->certificate_name }}
                             </td>
-                            <td class="py-3 px-4 text-slate-300 text-xs">
-                                {{ $cert->issue_date->format('d M Y') }}
-                            </td>
-                            <td class="py-3 px-4 font-bold text-xs {{ $days < 0 ? 'text-rose-400' : ($days <= 60 ? 'text-amber-400' : 'text-slate-100') }}">
+                            <td class="py-3 px-4 font-bold text-xs {{ $cert->status === 'expired' ? 'text-rose-400' : ($cert->status === 'warning' ? 'text-amber-400' : 'text-slate-100') }}">
                                 {{ $cert->expiry_date->format('d M Y') }}
-                                <span class="block text-xs font-normal {{ $days < 0 ? 'text-rose-400/90' : ($days <= 60 ? 'text-amber-400/90' : 'text-slate-400') }} mt-0.5">
-                                    {{ $days < 0 ? 'Lewat ' . abs($days) . ' hari' : ($days == 0 ? 'Hari ini' : 'Sisa ' . $days . ' hari') }}
+                                <span class="block text-xs font-normal {{ $cert->status === 'expired' ? 'text-rose-400/90' : ($cert->status === 'warning' ? 'text-amber-400/90' : 'text-slate-400') }} mt-0.5">
+                                    @if($cert->overridden_by_excel)
+                                        {{ $cert->status === 'expired' ? 'Expired (Excel)' : ($cert->status === 'warning' ? 'Akan Expired (Excel)' : 'Valid (Excel)') }}
+                                    @else
+                                        {{ $days < 0 ? 'Lewat ' . abs($days) . ' hari' : ($days == 0 ? 'Hari ini' : 'Sisa ' . $days . ' hari') }}
+                                    @endif
                                 </span>
                             </td>
 
@@ -258,7 +258,7 @@
                         </a>
                     </div>
                     <p class="text-xs text-slate-400 font-mono bg-slate-900/80 p-2 rounded-lg border border-slate-800 break-all">
-                        No Pegawai, Nama Pegawai, Email, Unit, Nama Sertifikasi, Tanggal Terbit (YYYY-MM-DD), Tanggal Expired (YYYY-MM-DD)
+                        No Pegawai, Nama Pegawai, Email, Unit, Nama Sertifikasi, Tanggal Expired (YYYY-MM-DD)
                     </p>
                     <p class="text-xs text-slate-400">
                         &bull; File yang diekspor dari tombol <strong>Export Excel/CSV</strong> juga dapat langsung diunggah kembali ke sini tanpa ubah format.

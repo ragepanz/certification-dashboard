@@ -8,6 +8,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+// Helper: sertifikat tanpa expiry_date (null) tetap dihitung 'active' (tidak berakhir)
+
 class DashboardController extends Controller
 {
     public function index(Request $request)
@@ -38,20 +40,42 @@ class DashboardController extends Controller
 
         // JIKA SUPERADMIN (LCU): Tampilkan Monitoring Dashboard Lengkap
         // 1. KPI Metrics
+        // Catatan: excel_status (kolom "Status" di Excel) adalah sumber kebenaran.
+        // Jika Excel bilang 'valid', sertifikat tetap Aktif walau tanggalnya sudah lewat.
         $totalEmployees = User::where('role', 'employee')->count();
         $totalCertifications = Certification::count();
 
-        // Status counts:
-        // Akan Expired: expiry_date between today and today + 60 days
-        $expiringCount = Certification::whereDate('expiry_date', '>=', $today)
-            ->whereDate('expiry_date', '<=', $today->copy()->addDays(60))
-            ->count();
+        $expiringCount = Certification::where(function ($q) use ($today) {
+            $q->where('excel_status', 'expiring')
+              ->orWhere(function ($q2) use ($today) {
+                  $q2->whereNull('excel_status')
+                     ->whereNotNull('expiry_date')
+                     ->whereDate('expiry_date', '>=', $today)
+                     ->whereDate('expiry_date', '<=', $today->copy()->addDays(60));
+              });
+        })->count();
 
-        // Expired: expiry_date < today
-        $expiredCount = Certification::whereDate('expiry_date', '<', $today)->count();
+        $expiredCount = Certification::where(function ($q) use ($today) {
+            $q->where('excel_status', 'expired')
+              ->orWhere(function ($q2) use ($today) {
+                  $q2->whereNull('excel_status')
+                     ->whereNotNull('expiry_date')
+                     ->whereDate('expiry_date', '<', $today);
+              });
+        })->count();
 
-        // Active: expiry_date > today + 60 days
-        $activeCount = Certification::whereDate('expiry_date', '>', $today->copy()->addDays(60))->count();
+        $activeCount = Certification::where(function ($q) use ($today) {
+            $q->where('excel_status', 'valid')
+              ->orWhere(function ($q2) use ($today) {
+                  $q2->whereNull('excel_status')
+                     ->where(function ($q3) use ($today) {
+                         $q3->whereNull('expiry_date')
+                            ->orWhereDate('expiry_date', '>', $today->copy()->addDays(60));
+                     });
+              });
+        })->count();
+
+        $permanentCount = Certification::whereNull('expiry_date')->count();
 
         // 2. Filter Parameters
         $query = Certification::with('user');
@@ -81,12 +105,37 @@ class DashboardController extends Controller
         if ($request->filled('status')) {
             $status = $request->input('status');
             if ($status === 'expired') {
-                $query->whereDate('expiry_date', '<', $today);
+                $query->where(function ($q) use ($today) {
+                    $q->where('excel_status', 'expired')
+                      ->orWhere(function ($q2) use ($today) {
+                          $q2->whereNull('excel_status')
+                             ->whereNotNull('expiry_date')
+                             ->whereDate('expiry_date', '<', $today);
+                      });
+                });
             } elseif ($status === 'warning') {
-                $query->whereDate('expiry_date', '>=', $today)
-                      ->whereDate('expiry_date', '<=', $today->copy()->addDays(60));
+                $query->where(function ($q) use ($today) {
+                    $q->where('excel_status', 'expiring')
+                      ->orWhere(function ($q2) use ($today) {
+                          $q2->whereNull('excel_status')
+                             ->whereNotNull('expiry_date')
+                             ->whereDate('expiry_date', '>=', $today)
+                             ->whereDate('expiry_date', '<=', $today->copy()->addDays(60));
+                      });
+                });
             } elseif ($status === 'active') {
-                $query->whereDate('expiry_date', '>', $today->copy()->addDays(60));
+                $query->where(function ($q) use ($today) {
+                    $q->where('excel_status', 'valid')
+                      ->orWhere(function ($q2) use ($today) {
+                          $q2->whereNull('excel_status')
+                             ->where(function ($q3) use ($today) {
+                                 $q3->whereNull('expiry_date')
+                                    ->orWhereDate('expiry_date', '>', $today->copy()->addDays(60));
+                             });
+                      });
+                });
+            } elseif ($status === 'permanent') {
+                $query->whereNull('expiry_date');
             }
         }
 
@@ -96,18 +145,19 @@ class DashboardController extends Controller
             $perPage = 25;
         }
 
-        $certifications = $query->orderBy('expiry_date', 'asc')->paginate($perPage)->withQueryString();
+        $certifications = $query->orderByRaw('expiry_date IS NULL, expiry_date ASC')->paginate($perPage)->withQueryString();
 
         // Distinct lists for filter dropdowns
         $units = User::whereNotNull('unit')->distinct()->pluck('unit');
         $certificateNames = Certification::distinct()->pluck('certificate_name');
 
         // 3. Breakdown per Jenis Sertifikasi / Training Module
+        // 'Aktif' di sini = tanggal > today+60 ATAU di-override Valid oleh Excel
         $certificateTypes = Certification::select('certificate_name')
             ->selectRaw('COUNT(*) as total_count')
-            ->selectRaw('SUM(CASE WHEN expiry_date > ? THEN 1 ELSE 0 END) as active_count', [$today->copy()->addDays(60)])
-            ->selectRaw('SUM(CASE WHEN expiry_date >= ? AND expiry_date <= ? THEN 1 ELSE 0 END) as warning_count', [$today, $today->copy()->addDays(60)])
-            ->selectRaw('SUM(CASE WHEN expiry_date < ? THEN 1 ELSE 0 END) as expired_count', [$today])
+            ->selectRaw("SUM(CASE WHEN excel_status = 'valid' OR (excel_status IS NULL AND (expiry_date IS NULL OR expiry_date > ?)) THEN 1 ELSE 0 END) as active_count", [$today->copy()->addDays(60)])
+            ->selectRaw("SUM(CASE WHEN excel_status = 'expiring' OR (excel_status IS NULL AND expiry_date IS NOT NULL AND expiry_date >= ? AND expiry_date <= ?) THEN 1 ELSE 0 END) as warning_count", [$today, $today->copy()->addDays(60)])
+            ->selectRaw("SUM(CASE WHEN excel_status = 'expired' OR (excel_status IS NULL AND expiry_date IS NOT NULL AND expiry_date < ?) THEN 1 ELSE 0 END) as expired_count", [$today])
             ->groupBy('certificate_name')
             ->orderBy('total_count', 'desc')
             ->get();
@@ -124,6 +174,7 @@ class DashboardController extends Controller
             'expiringCount' => $expiringCount,
             'expiredCount' => $expiredCount,
             'activeCount' => $activeCount,
+            'permanentCount' => $permanentCount,
             'certifications' => $certifications,
             'units' => $units,
             'certificateNames' => $certificateNames,
