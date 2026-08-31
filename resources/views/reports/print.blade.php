@@ -45,10 +45,10 @@
             <tr>
                 <th style="width: 4%;">No.</th>
                 <th style="width: 12%;">No. Pegawai</th>
-                <th style="width: 20%;">Nama Pegawai</th>
-                <th style="width: 14%;">Unit Kerja</th>
-                <th style="width: 28%;">Nama Sertifikasi</th>
-                <th style="width: 16%;">Masa Berlaku</th>
+                <th style="width: 22%;">Nama & Jabatan</th>
+                <th style="width: 12%;">Unit Kerja</th>
+                <th style="width: 26%;">Nama Sertifikasi</th>
+                <th style="width: 12%;">Masa Berlaku</th>
                 <th style="width: 12%;">Status</th>
             </tr>
         </thead>
@@ -60,7 +60,12 @@
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>{{ $cert->user->employee_number ?? '-' }}</td>
-                    <td><strong>{{ $cert->user->name ?? '-' }}</strong></td>
+                    <td>
+                        <strong>{{ $cert->user->name ?? '-' }}</strong>
+                        @if($cert->user->job_title)
+                            <div style="font-size: 10px; color: #64748b;">{{ $cert->user->job_title }}</div>
+                        @endif
+                    </td>
                     <td>{{ $cert->user->unit ?? '-' }}</td>
                     <td>{{ $cert->certificate_name }}</td>
                     <td>
@@ -72,21 +77,13 @@
                     </td>
                     <td>
                         @if($cert->expiry_date === null)
-                            <span class="status-active">Permanen (Tanpa Expired)</span>
-                        @elseif($cert->overridden_by_excel)
-                            @if($cert->status === 'expired')
-                                <span class="status-expired">Expired (Excel)</span>
-                            @elseif($cert->status === 'warning')
-                                <span class="status-warning">Akan Expired (Excel)</span>
-                            @else
-                                <span class="status-active">Valid (Excel)</span>
-                            @endif
+                            <span class="status-active">Permanen</span>
                         @elseif($cert->status === 'expired')
-                            <span class="status-expired">Expired ({{ $days }} hr)</span>
+                            <span class="status-expired">Expired (Lewat {{ abs($days) }} hr)</span>
                         @elseif($cert->status === 'warning')
-                            <span class="status-warning">Akan Expired ({{ $days }} hr)</span>
+                            <span class="status-warning">Akan Expired (Sisa {{ $days }} hr)</span>
                         @else
-                            <span class="status-active">Aktif ({{ $days }} hr)</span>
+                            <span class="status-active">Aktif (Sisa {{ $days }} hr)</span>
                         @endif
                     </td>
                 </tr>

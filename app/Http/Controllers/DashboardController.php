@@ -35,6 +35,9 @@ class DashboardController extends Controller
                 'active' => $myActive,
                 'warning' => $myWarning,
                 'expired' => $myExpired,
+                'achievement' => $user->training_achievement,
+                'requiredCount' => $user->required_trainings_count,
+                'completedCount' => $user->completed_trainings_count,
             ]);
         }
 
@@ -42,6 +45,10 @@ class DashboardController extends Controller
         // 1. KPI Metrics
         $totalEmployees = User::where('role', 'employee')->count();
         $totalCertifications = Certification::count();
+
+        $employees = User::where('role', 'employee')->with('certifications')->get();
+        $totalAchievements = $employees->sum('training_achievement');
+        $avgAchievement = $totalEmployees > 0 ? round($totalAchievements / $totalEmployees, 1) : 100.0;
 
         $expiringCount = Certification::whereNotNull('expiry_date')
             ->whereDate('expiry_date', '>=', $today)
@@ -143,6 +150,7 @@ class DashboardController extends Controller
         return view('dashboard.admin', [
             'totalEmployees' => $totalEmployees,
             'totalCertifications' => $totalCertifications,
+            'avgAchievement' => $avgAchievement,
             'expiringCount' => $expiringCount,
             'expiredCount' => $expiredCount,
             'activeCount' => $activeCount,

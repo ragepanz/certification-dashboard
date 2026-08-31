@@ -27,7 +27,26 @@
     </div>
 
     <!-- Personal Metrics -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Card 1: Training Achievement -->
+        <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-xs font-semibold text-emerald-400">Training Achievement</p>
+                    <p class="text-2xl font-extrabold text-white mt-0.5">{{ $achievement }}%</p>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                    <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                </div>
+            </div>
+            <div class="mt-3">
+                <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700/60">
+                    <div class="h-full rounded-full bg-emerald-500 transition-all duration-500" style="width: {{ min($achievement, 100) }}%"></div>
+                </div>
+                <p class="text-[10px] text-slate-400 font-mono mt-1 text-right">{{ $completedCount }}/{{ $requiredCount }} Modul Mandatory</p>
+            </div>
+        </div>
+
         <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 flex items-center justify-between">
             <div>
                 <p class="text-xs font-semibold text-slate-400">Total Sertifikasi Saya</p>

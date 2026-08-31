@@ -59,7 +59,7 @@
     </div>
 
     <!-- KPI Metric Cards Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
         <!-- Card 1: Total Pegawai -->
         <div class="p-4 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/40 border border-slate-800/80 relative overflow-hidden group hover:border-indigo-500/50 transition-all duration-200 shadow-md">
             <div class="flex items-center justify-between mb-2">
@@ -75,7 +75,24 @@
             <p class="text-xs text-slate-500 mt-1">Terdaftar di unit TN & GMF</p>
         </div>
 
-        <!-- Card 2: Total Sertifikasi -->
+        <!-- Card 2: Training Achievement Kedinasan -->
+        <div class="p-4 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/40 border {{ $avgAchievement >= 90 ? 'border-emerald-500/30 hover:border-emerald-500/60' : 'border-indigo-500/30 hover:border-indigo-500/60' }} relative overflow-hidden group transition-all duration-200 shadow-md">
+            <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">Training Achievement</span>
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
+                    <i data-lucide="check-circle-2" class="w-4 h-4"></i>
+                </div>
+            </div>
+            <div class="flex items-baseline gap-1.5">
+                <span class="text-3xl font-extrabold text-emerald-400 tracking-tight">{{ $avgAchievement }}%</span>
+                <span class="text-xs text-emerald-300/80">rata-rata</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700/60 mt-1.5">
+                <div class="h-full rounded-full bg-emerald-500 transition-all duration-500" style="width: {{ min($avgAchievement, 100) }}%"></div>
+            </div>
+        </div>
+
+        <!-- Card 3: Total Sertifikasi -->
         <div class="p-4 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/40 border border-slate-800/80 relative overflow-hidden group hover:border-cyan-500/50 transition-all duration-200 shadow-md">
             <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Total Sertifikasi</span>
@@ -93,7 +110,7 @@
             </div>
         </div>
 
-        <!-- Card 3: Sertifikasi Akan Expired (Warning) -->
+        <!-- Card 4: Sertifikasi Akan Expired (Warning) -->
         <div class="p-4 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/40 border border-amber-500/30 relative overflow-hidden group hover:border-amber-500/60 transition-all duration-200 shadow-md">
             <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Akan Expired (≤60 Hari)</span>
@@ -108,8 +125,7 @@
             <p class="text-xs text-amber-400/80 mt-1">Mendekati masa berlaku habis</p>
         </div>
 
-
-        <!-- Card 4: Sertifikasi Expired (Danger) -->
+        <!-- Card 5: Sertifikasi Expired (Danger) -->
         <div class="p-4 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-900/40 border border-rose-500/30 relative overflow-hidden group hover:border-rose-500/60 transition-all duration-200 shadow-md">
             <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-bold uppercase tracking-wider text-rose-400">Telah Expired</span>
