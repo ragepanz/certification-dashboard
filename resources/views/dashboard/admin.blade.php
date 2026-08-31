@@ -347,31 +347,23 @@
                                 {{ $cert->certificate_name }}
                             </td>
                             <td class="py-3 px-4 text-slate-300 text-xs">
-                                {{ $cert->expiry_date->format('d M Y') }}
+                                @if($cert->expiry_date)
+                                    @if($cert->excel_status === null)
+                                        {{ $cert->expiry_date->format('d M Y') }}
+                                        <span class="block text-[10px] text-indigo-400 font-medium">Tanggal Pelaksanaan</span>
+                                    @else
+                                        {{ $cert->expiry_date->format('d M Y') }}
+                                    @endif
+                                @else
+                                    -
+                                @endif
                             </td>
                             <td class="py-3 px-4 text-xs">
-                                @if($days === null)
-                                    <span class="inline-flex items-center gap-1 font-medium text-slate-400">
-                                        <i data-lucide="infinity" class="w-3.5 h-3.5"></i>
-                                        Permanen (Tanpa Expired)
+                                @if($cert->excel_status === null)
+                                    <span class="inline-flex items-center gap-1 font-semibold text-indigo-400">
+                                        <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+                                        Sekali Ambil
                                     </span>
-                                @elseif($cert->overridden_by_excel)
-                                    @if($cert->status === 'active')
-                                        <span class="inline-flex items-center gap-1 font-bold text-emerald-400">
-                                            <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
-                                            Valid (Excel)
-                                        </span>
-                                    @elseif($cert->status === 'warning')
-                                        <span class="inline-flex items-center gap-1 font-bold text-amber-400">
-                                            <i data-lucide="clock" class="w-3.5 h-3.5"></i>
-                                            Akan Expired (Excel)
-                                        </span>
-                                    @else
-                                        <span class="inline-flex items-center gap-1 font-bold text-rose-400">
-                                            <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>
-                                            Expired (Excel)
-                                        </span>
-                                    @endif
                                 @elseif($days < 0)
                                     <span class="inline-flex items-center gap-1 font-bold text-rose-400">
                                         <i data-lucide="alert-circle" class="w-3.5 h-3.5"></i>

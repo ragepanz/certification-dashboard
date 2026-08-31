@@ -70,6 +70,11 @@ class Certification extends Model
      */
     public function getStatusAttribute(): string
     {
+        // Jika excel_status kosong/null, anggap sebagai sertifikasi sekali ambil (Aktif, tidak pernah expired berdasarkan tanggal)
+        if ($this->excel_status === null) {
+            return 'active';
+        }
+
         // Override dari Excel: valid -> Aktif, expiring -> Akan Expired, expired -> Expired
         $override = match ($this->excel_status) {
             'valid' => 'active',
