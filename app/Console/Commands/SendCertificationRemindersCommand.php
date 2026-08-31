@@ -28,9 +28,6 @@ class SendCertificationRemindersCommand extends Command
 
         $this->info("Pengaturan aktif — H-: " . implode(', ', $daysBefore) . " | H+: " . implode(', ', $daysAfter));
 
-        // Special reminders for Group Head and Division Head
-        $this->processSpecialReminders();
-
         foreach ($daysBefore as $offset) {
             $targetDate = $today->copy()->addDays($offset)->format('Y-m-d');
             $certs = Certification::with('user')
@@ -38,19 +35,6 @@ class SendCertificationRemindersCommand extends Command
                 ->where(function ($q) {
                     // Sertifikat yang masih Valid menurut Excel tidak perlu diingatkan
                     $q->whereNull('excel_status')->orWhere('excel_status', '!=', 'valid');
-                })
-                ->where(function ($q) {
-                    // Untuk Group Head & Division Head, hanya boleh diingatkan untuk Human Factor & SMS
-                    $q->whereDoesntHave('user', function ($uq) {
-                        $uq->whereIn('job_title', ['Group Head', 'Division Head']);
-                    })->orWhere(function ($sq) {
-                        $sq->whereHas('user', function ($uq) {
-                            $uq->whereIn('job_title', ['Group Head', 'Division Head']);
-                        })->where(function ($cq) {
-                            $cq->where('certificate_name', 'like', '%Human Factor%')
-                               ->orWhere('certificate_name', 'like', '%Safety Management System%');
-                        });
-                    });
                 })
                 ->get();
             $this->info("Ditemukan {$certs->count()} sertifikasi pada H-{$offset} ({$targetDate}).");
@@ -67,19 +51,6 @@ class SendCertificationRemindersCommand extends Command
                     // Sertifikat yang masih Valid menurut Excel tidak perlu diingatkan
                     $q->whereNull('excel_status')->orWhere('excel_status', '!=', 'valid');
                 })
-                ->where(function ($q) {
-                    // Untuk Group Head & Division Head, hanya boleh diingatkan untuk Human Factor & SMS
-                    $q->whereDoesntHave('user', function ($uq) {
-                        $uq->whereIn('job_title', ['Group Head', 'Division Head']);
-                    })->orWhere(function ($sq) {
-                        $sq->whereHas('user', function ($uq) {
-                            $uq->whereIn('job_title', ['Group Head', 'Division Head']);
-                        })->where(function ($cq) {
-                            $cq->where('certificate_name', 'like', '%Human Factor%')
-                               ->orWhere('certificate_name', 'like', '%Safety Management System%');
-                        });
-                    });
-                })
                 ->get();
             $this->info("Ditemukan {$certs->count()} sertifikasi pada H+{$offset} ({$targetDate}).");
             foreach ($certs as $cert) {
@@ -90,64 +61,6 @@ class SendCertificationRemindersCommand extends Command
         $this->info("Proses pengiriman reminder sertifikasi selesai!");
         return Command::SUCCESS;
     }
-
-    protected function processSpecialReminders(): void
-    {
-        // Group Head and Division Head mendapat pengingat khusus untuk Human Factor dan Safety Management System
-        $specialPositions = ['Group Head', 'Division Head'];
-        $specialCertificates = ['Human Factor', 'Safety Management System'];
-
-        $users = User::whereIn('job_title', $specialPositions)->get();
-
-        foreach ($users as $user) {
-            foreach ($specialCertificates as $certName) {
-                $cert = Certification::where('user_id', $user->id)
-                    ->where('certificate_name', 'like', "%{$certName}%")
-                    ->first();
-
-                if (!$cert) {
-                    $this->info("Tidak ditemukan sertifikasi {$certName} untuk {$user->name} ({$user->job_title})");
-                    continue;
-                }
-
-                // Cek apakah sudah pernah dikirimkan log reminder tipe khusus ini
-                $alreadySent = ReminderLog::where('certification_id', $cert->id)
-                    ->where('type', 'special')
-                    ->where('status', 'sent')
-                    ->exists();
-
-                if ($alreadySent) {
-                    $this->line("Special reminder untuk '{$cert->certificate_name}' ({$user->email}) sudah pernah dikirim sebelumnya. Dilewati.");
-                    continue;
-                }
-
-                // Cek status sertifikasi - hanyalah active, expired, atau warning (bukan permanent)
-                if ($cert->status === 'active' || $cert->status === 'warning' || $cert->status === 'expired') {
-                    try {
-                        Mail::to($user->email)->send(new CertificationReminderMail($cert, 'special'));
-
-                        ReminderLog::create([
-                            'certification_id' => $cert->id,
-                            'type' => 'special',
-                            'recipient_email' => $user->email,
-                            'status' => 'sent',
-                            'sent_at' => now(),
-                        ]);
-
-                        $this->info("✔ Berhasil mengirim special reminder ke {$user->email} ({$cert->certificate_name})");
-                    } catch (\Exception $e) {
-                        Log::error("Gagal mengirim special reminder sertifikasi ID {$cert->id}: " . $e->getMessage());
-
-                        ReminderLog::create([
-                            'certification_id' => $cert->id,
-                            'type' => 'special',
-                            'recipient_email' => $user->email,
-                            'status' => 'failed',
-                            'sent_at' => now(),
-                            'error_message' => $e->getMessage(),
-                        ]);
-
-                        $this->error("✖ Gagal mengirim special reminder ke {$user->email}: " . $e->getMessage());
                     }
                 }
             }

@@ -49,6 +49,12 @@ Route::middleware('auth')->group(function () {
         Route::put('/settings/reminder', [SettingController::class, 'updateReminder'])->name('settings.reminder.update');
         Route::post('/settings/reminder/trigger', [SettingController::class, 'triggerManualReminders'])->name('settings.reminder.trigger');
 
+        // Job Training Matrix (TrainingMan)
+        Route::get('/settings/matrix', [\App\Http\Controllers\JobTrainingMatrixController::class, 'index'])->name('matrix.index');
+        Route::post('/settings/matrix', [\App\Http\Controllers\JobTrainingMatrixController::class, 'store'])->name('matrix.store');
+        Route::put('/settings/matrix/{matrix}', [\App\Http\Controllers\JobTrainingMatrixController::class, 'update'])->name('matrix.update');
+        Route::delete('/settings/matrix/{matrix}', [\App\Http\Controllers\JobTrainingMatrixController::class, 'destroy'])->name('matrix.destroy');
+
         // Certificate Types Directory & Analytics
         Route::get('/certificate-types', [\App\Http\Controllers\CertificateTypeController::class, 'index'])->name('certificate-types.index');
         Route::get('/certificate-types/{name}', [\App\Http\Controllers\CertificateTypeController::class, 'show'])->name('certificate-types.show');

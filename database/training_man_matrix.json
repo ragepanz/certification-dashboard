@@ -1,0 +1,1732 @@
+{
+  "aircraft cabin controller": {
+    "aircraft exterior & interior cleaning": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0016"
+    },
+    "aircraft familiarization": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0196"
+    },
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "casr part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    }
+  },
+  "ojt to aircraft cabin controller": {
+    "aircraft exterior & interior cleaning": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0016"
+    },
+    "aircraft familiarization": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0196"
+    },
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "casr part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    }
+  },
+  "aircraft cabin engineer": {
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "basic supervisory training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0117"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "fundamental troubleshooting": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0052"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    }
+  },
+  "ojt to aircraft cabin engineer": {
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "basic supervisory training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0117"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "fundamental troubleshooting": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0052"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    }
+  },
+  "aircraft cabin technician": {
+    "adth": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0169"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    }
+  },
+  "aircraft cabin technician (pkwt np)": {
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "casr part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "easa part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "easa part m": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "far part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    }
+  },
+  "aircraft maintenance engineer": {
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "basic supervisory training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0117"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "certifying staff": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "COT-0001"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "fundamental troubleshooting": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0052"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    },
+    "type rating level iii training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0220"
+    }
+  },
+  "aircraft maintenance planner": {
+    "aircraft familiarization": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0196"
+    },
+    "basic planning": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0014"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    }
+  },
+  "production support officer": {
+    "aircraft familiarization": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0196"
+    },
+    "basic planning": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0014"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    }
+  },
+  "aircraft maintenance planning engineer": {
+    "aircraft familiarization": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0196"
+    },
+    "basic engineering": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0008"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    }
+  },
+  "aircraft maintenance technician": {
+    "adth": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0169"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    }
+  },
+  "aircraft maintenance technician (pkwt np)": {
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "casr part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "easa part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "easa part m": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "far part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    }
+  },
+  "manager cabin on duty": {
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "type rating level iii training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": null
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": null
+    },
+    "casr part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "easa part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "easa part m": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "far part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    }
+  },
+  "department head": {
+    "aviation legislation module 10": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0025"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "leadership skill training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0359"
+    },
+    "mro finance": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0260"
+    },
+    "mro management": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0261"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    }
+  },
+  "division head": {
+    "aviation legislation module 10": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0025"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "leadership skill training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0359"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    }
+  },
+  "group head": {
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": null
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": null
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "casr part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "easa part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "easa part m": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "far part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    }
+  },
+  "senior aircraft cabin controller": {
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "casr part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "project management basic": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0065"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    }
+  },
+  "senior aircraft cabin engineer": {
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "basic supervisory training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0117"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "fundamental troubleshooting": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0052"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    }
+  },
+  "senior aircraft cabin technician": {
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    }
+  },
+  "trainee for senior aircraft cabin technician": {
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    }
+  },
+  "senior aircraft maintenance engineer": {
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "basic supervisory training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0117"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "certifying staff": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "COT-0001"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": null
+    },
+    "fundamental troubleshooting": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0052"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    },
+    "type rating level iii training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0220"
+    }
+  },
+  "senior aircraft maintenance planner": {
+    "aircraft familiarization": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0196"
+    },
+    "basic planning": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0014"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "project management basic": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0035"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    },
+    "training of trainer": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0065"
+    }
+  },
+  "senior aircraft maintenance planning engineer": {
+    "aircraft familiarization": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0196"
+    },
+    "basic engineering": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0008"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "project management basic": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0065"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    },
+    "training of trainer": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0065"
+    }
+  },
+  "assistant staff officer": {
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": null
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": null
+    },
+    "gmf quality system": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": null
+    },
+    "casr part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "easa part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "easa part m": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "ewis": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "far part 145": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    },
+    "fuel tank safety": {
+      "validity": "Forever",
+      "no_need": true,
+      "code": null
+    }
+  },
+  "senior aircraft maintenance technician": {
+    "adth": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0169"
+    },
+    "basic inspection": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0009"
+    },
+    "casr part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0044"
+    },
+    "dangerous good": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "BCT-0024"
+    },
+    "easa part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0006"
+    },
+    "easa part m": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0142"
+    },
+    "ewis": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0079"
+    },
+    "far part 145": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0034"
+    },
+    "fuel tank safety": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "TCT-0267"
+    },
+    "gmf quality system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0150"
+    },
+    "human factor": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0053"
+    },
+    "orientation training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "WBT-0050"
+    },
+    "safety management system": {
+      "validity": "2-Year",
+      "no_need": false,
+      "code": "BCT-0080"
+    },
+    "swift training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "TCT-0486"
+    },
+    "type rating level iii training": {
+      "validity": "Forever",
+      "no_need": false,
+      "code": "JCT-0220"
+    }
+  }
+}

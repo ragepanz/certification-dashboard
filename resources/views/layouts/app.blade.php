@@ -105,6 +105,13 @@
                             <span>Manajemen Akun</span>
                         </a>
 
+                        <!-- Matriks Standar Training (Training Mandatory) -->
+                        <a href="{{ route('matrix.index') }}" 
+                           class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 {{ request()->routeIs('matrix.*') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30' : 'text-slate-300 hover:bg-slate-800/60 hover:text-white' }}">
+                            <i data-lucide="layers" class="w-4 h-4"></i>
+                            <span>Training Mandatory</span>
+                        </a>
+
                         <!-- Reminder Settings -->
                         <a href="{{ route('settings.reminder') }}" 
                            class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 {{ request()->routeIs('settings.*') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30' : 'text-slate-300 hover:bg-slate-800/60 hover:text-white' }}">
