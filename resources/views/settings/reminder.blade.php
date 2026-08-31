@@ -120,13 +120,13 @@
 
         <div class="rounded-3xl border border-slate-800/80 bg-slate-900/80 p-5 shadow-xl backdrop-blur-xl h-fit">
             <h4 class="text-sm font-bold text-white flex items-center gap-2">
-                <i data-lucide="info" class="w-4 h-4 text-cyan-400"></i>
-                Catatan
+                <i data-lucide="info" class="w-4 h-4 text-indigo-400"></i>
+                Informasi Sistem
             </h4>
             <div class="mt-4 space-y-3 text-xs text-slate-400 leading-relaxed">
-                <p>Pengaturan ini dipakai oleh proses otomatis <span class="text-slate-200 font-semibold">certification:send-reminders</span> saat dijalankan.</p>
-                <p><span class="text-amber-400 font-semibold">Status: Belum aktif.</span> Scheduler otomatis masih dinonaktifkan di <code>routes/console.php</code> hingga dapat validasi.</p>
-                <p>Reminder hanya dikirim satu kali untuk setiap tipe, misalnya H-30 hanya sekali per sertifikasi.</p>
+                <p>Pengaturan ini digunakan oleh modul reminder untuk memfilter sertifikasi pegawai yang mendekati atau telah melewati masa berlaku.</p>
+                <p>Notifikasi email terkirim secara otomatis kepada pegawai terkait dan atasan sesuai unit kerja.</p>
+                <p>Reminder hanya dikirim satu kali untuk setiap jadwal interval (misal: H-30 hanya dikirim sekali per sertifikat).</p>
             </div>
         </div>
     </div>

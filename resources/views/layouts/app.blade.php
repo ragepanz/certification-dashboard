@@ -125,15 +125,7 @@
                     </a>
                 </div>
 
-                <!-- LCU System Tag -->
-                <div class="p-3.5 rounded-xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700/50 backdrop-blur-md">
-                    <div class="flex items-center gap-1.5 mb-1">
-                        <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                            Auto-Reminder Paused
-                        </span>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-snug">Pengingat email otomatis dinonaktifkan sementara.</p>
-                </div>
+
             </div>
 
             <!-- User Footer Box -->
