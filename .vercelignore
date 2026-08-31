@@ -1,0 +1,8 @@
+/vendor
+/node_modules
+/.git
+/tests
+.env
+.env.backup
+.phpunit.result.cache
+*.xlsx
