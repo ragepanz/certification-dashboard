@@ -35,7 +35,14 @@
                     <p class="text-[11px] text-slate-400 mt-1">Email: {{ $employee->email }}</p>
                 </div>
             </div>
-            <div>
+            <div class="flex flex-wrap items-center gap-3">
+                <div class="p-3 rounded-2xl bg-slate-800/80 border border-slate-700/60 text-right">
+                    <p class="text-[10px] text-slate-400 font-semibold uppercase">Training Achievement</p>
+                    <p class="text-lg font-black {{ $employee->training_achievement >= 100 ? 'text-emerald-400' : ($employee->training_achievement >= 80 ? 'text-cyan-400' : 'text-amber-400') }}">
+                        {{ $employee->training_achievement }}%
+                    </p>
+                    <p class="text-[10px] text-slate-400 font-mono">{{ $employee->completed_trainings_count }} dari {{ $employee->required_trainings_count }} Mandatory</p>
+                </div>
                 <span class="px-3 py-1.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-xs font-bold">
                     {{ $employee->certifications->count() }} Sertifikasi Terdaftar
                 </span>

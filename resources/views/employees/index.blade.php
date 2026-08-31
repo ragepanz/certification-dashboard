@@ -78,15 +78,21 @@
                 <thead>
                     <tr class="border-b border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider bg-slate-900/60">
                         <th class="py-3.5 px-4">No. Pegawai</th>
-                        <th class="py-3.5 px-4">Nama Lengkap</th>
+                        <th class="py-3.5 px-4">Nama Lengkap & Jabatan</th>
                         <th class="py-3.5 px-4">Email Notifikasi</th>
                         <th class="py-3.5 px-4">Unit</th>
                         <th class="py-3.5 px-4">Total Sertifikasi</th>
+                        <th class="py-3.5 px-4">Training Achievement</th>
                         <th class="py-3.5 px-4 text-right">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-800/60">
                     @forelse($employees as $emp)
+                        @php
+                            $ach = $emp->training_achievement;
+                            $req = $emp->required_trainings_count;
+                            $comp = $emp->completed_trainings_count;
+                        @endphp
                         <tr class="hover:bg-slate-800/40 transition-colors">
                             <td class="py-3 px-4 font-mono font-semibold text-indigo-300 text-xs">
                                 {{ $emp->employee_number ?? '-' }}
@@ -96,7 +102,12 @@
                                     <div class="w-7 h-7 rounded-full bg-slate-800 border border-slate-700 text-indigo-400 flex items-center justify-center font-bold text-xs flex-shrink-0">
                                         {{ substr($emp->name, 0, 1) }}
                                     </div>
-                                    <span>{{ $emp->name }}</span>
+                                    <div>
+                                        <p class="text-white font-bold">{{ $emp->name }}</p>
+                                        @if($emp->job_title)
+                                            <p class="text-[10px] text-slate-400 font-normal">{{ $emp->job_title }}</p>
+                                        @endif
+                                    </div>
                                 </div>
                             </td>
                             <td class="py-3 px-4 text-slate-300 text-xs">
@@ -111,6 +122,22 @@
                                 <span class="px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-bold text-xs">
                                     {{ $emp->certifications_count }} sertifikat
                                 </span>
+                            </td>
+                            <td class="py-3 px-4">
+                                <div class="space-y-1 min-w-[130px]">
+                                    <div class="flex items-center justify-between text-[11px]">
+                                        <span class="font-bold {{ $ach >= 100 ? 'text-emerald-400' : ($ach >= 80 ? 'text-cyan-400' : 'text-amber-400') }}">
+                                            {{ $ach }}%
+                                        </span>
+                                        <span class="text-[10px] text-slate-400 font-mono">
+                                            {{ $comp }}/{{ $req }} Req
+                                        </span>
+                                    </div>
+                                    <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden border border-slate-700/60">
+                                        <div class="h-full rounded-full transition-all duration-300 {{ $ach >= 100 ? 'bg-emerald-500' : ($ach >= 80 ? 'bg-cyan-500' : 'bg-amber-500') }}"
+                                             style="width: {{ min($ach, 100) }}%"></div>
+                                    </div>
+                                </div>
                             </td>
                             <td class="py-3 px-4 text-right">
                                 <div class="flex items-center justify-end gap-1.5">
