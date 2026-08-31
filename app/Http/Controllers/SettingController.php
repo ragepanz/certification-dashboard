@@ -35,4 +35,16 @@ class SettingController extends Controller
 
         return back()->with('success', 'Pengaturan jadwal reminder berhasil disimpan.');
     }
+
+    public function triggerManualReminders(Request $request)
+    {
+        try {
+            \Illuminate\Support\Facades\Artisan::call('certification:send-reminders');
+            $output = \Illuminate\Support\Facades\Artisan::output();
+
+            return back()->with('success', 'Proses reminder sertifikasi berhasil dijalankan secara manual.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Gagal menjalankan reminder: ' . $e->getMessage());
+        }
+    }
 }

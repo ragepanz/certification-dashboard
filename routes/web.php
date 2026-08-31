@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
         // Reminder Settings
         Route::get('/settings/reminder', [SettingController::class, 'reminder'])->name('settings.reminder');
         Route::put('/settings/reminder', [SettingController::class, 'updateReminder'])->name('settings.reminder.update');
+        Route::post('/settings/reminder/trigger', [SettingController::class, 'triggerManualReminders'])->name('settings.reminder.trigger');
 
         // Certificate Types Directory & Analytics
         Route::get('/certificate-types', [\App\Http\Controllers\CertificateTypeController::class, 'index'])->name('certificate-types.index');

@@ -2,16 +2,25 @@
 
 @section('content')
 <div class="max-w-4xl mx-auto space-y-5">
-    <div class="rounded-3xl border border-slate-800/80 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-amber-950/40 p-6 shadow-xl backdrop-blur-xl">
+    <div class="rounded-3xl border border-slate-800/80 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-indigo-950/40 p-6 shadow-xl backdrop-blur-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div class="flex items-center gap-4">
-            <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center border border-indigo-500/20">
                 <i data-lucide="bell-ring" class="w-7 h-7"></i>
             </div>
             <div>
-                <h3 class="text-lg font-bold text-white">Jadwal Reminder Otomatis</h3>
-                <p class="text-sm text-slate-400">Tentukan sendiri interval pengiriman email sebelum dan setelah sertifikasi expired.</p>
+                <h3 class="text-lg font-bold text-white">Jadwal & Eksekusi Reminder</h3>
+                <p class="text-sm text-slate-400">Atur interval pengiriman email atau jalankan proses pengecekan reminder secara manual.</p>
             </div>
         </div>
+
+        <!-- Tombol Jalankan Manual -->
+        <form method="POST" action="{{ route('settings.reminder.trigger') }}" onsubmit="return confirm('Apakah Anda yakin ingin menjalankan proses reminder email sekarang? Email akan dikirimkan ke pegawai dan atasan yang sertifikasinya memenuhi kriteria jadwal.');">
+            @csrf
+            <button type="submit" class="px-5 py-3 bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-bold rounded-2xl text-xs shadow-lg shadow-indigo-600/30 flex items-center gap-2.5 transition-all hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Jalankan Reminder Sekarang (Manual)</span>
+            </button>
+        </form>
     </div>
 
     @if($recentReminderLogs->isNotEmpty())
