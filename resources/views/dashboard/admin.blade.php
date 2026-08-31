@@ -3,7 +3,7 @@
 @section('content')
 <div class="space-y-5">
     <!-- Top Action Bar & Summary Info -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 bg-slate-900/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-md">
+    <div class="relative z-20 flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 bg-slate-900/60 p-4 rounded-2xl border border-slate-800/80 backdrop-blur-md">
         <div>
             <h3 class="text-base font-bold text-white flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-indigo-500"></span>
@@ -18,7 +18,7 @@
                     <span>Export & Cetak</span>
                     <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
                 </button>
-                <div x-show="exportDropdown" x-cloak class="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-2 z-50 space-y-1"
+                <div x-show="exportDropdown" x-cloak class="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-2 z-[100] space-y-1"
                      x-transition:enter="transition ease-out duration-100"
                      x-transition:enter-start="opacity-0 scale-95"
                      x-transition:enter-end="opacity-100 scale-100">
