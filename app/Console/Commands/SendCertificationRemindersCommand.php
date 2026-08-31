@@ -39,6 +39,19 @@ class SendCertificationRemindersCommand extends Command
                     // Sertifikat yang masih Valid menurut Excel tidak perlu diingatkan
                     $q->whereNull('excel_status')->orWhere('excel_status', '!=', 'valid');
                 })
+                ->where(function ($q) {
+                    // Untuk Group Head & Division Head, hanya boleh diingatkan untuk Human Factor & SMS
+                    $q->whereDoesntHave('user', function ($uq) {
+                        $uq->whereIn('job_title', ['Group Head', 'Division Head']);
+                    })->orWhere(function ($sq) {
+                        $sq->whereHas('user', function ($uq) {
+                            $uq->whereIn('job_title', ['Group Head', 'Division Head']);
+                        })->where(function ($cq) {
+                            $cq->where('certificate_name', 'like', '%Human Factor%')
+                               ->orWhere('certificate_name', 'like', '%Safety Management System%');
+                        });
+                    });
+                })
                 ->get();
             $this->info("Ditemukan {$certs->count()} sertifikasi pada H-{$offset} ({$targetDate}).");
             foreach ($certs as $cert) {
@@ -53,6 +66,19 @@ class SendCertificationRemindersCommand extends Command
                 ->where(function ($q) {
                     // Sertifikat yang masih Valid menurut Excel tidak perlu diingatkan
                     $q->whereNull('excel_status')->orWhere('excel_status', '!=', 'valid');
+                })
+                ->where(function ($q) {
+                    // Untuk Group Head & Division Head, hanya boleh diingatkan untuk Human Factor & SMS
+                    $q->whereDoesntHave('user', function ($uq) {
+                        $uq->whereIn('job_title', ['Group Head', 'Division Head']);
+                    })->orWhere(function ($sq) {
+                        $sq->whereHas('user', function ($uq) {
+                            $uq->whereIn('job_title', ['Group Head', 'Division Head']);
+                        })->where(function ($cq) {
+                            $cq->where('certificate_name', 'like', '%Human Factor%')
+                               ->orWhere('certificate_name', 'like', '%Safety Management System%');
+                        });
+                    });
                 })
                 ->get();
             $this->info("Ditemukan {$certs->count()} sertifikasi pada H+{$offset} ({$targetDate}).");
