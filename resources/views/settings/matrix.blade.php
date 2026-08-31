@@ -105,9 +105,8 @@
                 <thead>
                     <tr class="border-b border-slate-800 text-[11px] font-bold text-slate-400 uppercase tracking-wider bg-slate-900/80">
                         <th class="py-3.5 px-5">Jabatan (Job Title)</th>
-                        <th class="py-3.5 px-4">Nama Pelatihan / Modul</th>
-                        <th class="py-3.5 px-4">Kode Training</th>
-                        <th class="py-3.5 px-4">Masa Berlaku</th>
+                        <th class="py-3.5 px-4">Nama Pelatihan (Training Type)</th>
+                        <th class="py-3.5 px-4">Masa Berlaku (Validity)</th>
                         <th class="py-3.5 px-4">Status Syarat</th>
                         <th class="py-3.5 px-5 text-right">Aksi</th>
                     </tr>
@@ -120,9 +119,6 @@
                             </td>
                             <td class="py-3.5 px-4 font-semibold text-indigo-300">
                                 {{ $item->training_name }}
-                            </td>
-                            <td class="py-3.5 px-4 text-slate-400 font-mono">
-                                {{ $item->training_code ?? '-' }}
                             </td>
                             <td class="py-3.5 px-4 font-bold">
                                 @if($item->validity_type === '2-Year' && !$item->no_need_training)
@@ -154,7 +150,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="py-12 text-center text-slate-500">
+                            <td colspan="5" class="py-12 text-center text-slate-500">
                                 <i data-lucide="inbox" class="w-8 h-8 mx-auto text-slate-600 mb-2"></i>
                                 <p class="text-sm font-medium">Belum ada aturan matriks yang cocok dengan filter pencarian.</p>
                             </td>
@@ -177,7 +173,7 @@
             <div class="flex items-center justify-between pb-3 border-b border-slate-800">
                 <h3 class="text-sm font-bold text-white flex items-center gap-2">
                     <i data-lucide="plus-circle" class="w-4 h-4 text-indigo-400"></i>
-                    <span>Tambah Aturan Matriks Standar Training</span>
+                    <span>Tambah Training Mandatory</span>
                 </h3>
                 <button @click="createModal = false" class="text-slate-400 hover:text-white">
                     <i data-lucide="x" class="w-4 h-4"></i>
@@ -192,22 +188,16 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-1">Nama Pelatihan / Modul *</label>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Nama Pelatihan (Training Type) *</label>
                     <input type="text" name="training_name" required placeholder="Contoh: Safety Management System" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500">
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Kode Training</label>
-                        <input type="text" name="training_code" placeholder="Contoh: BCT-0080" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Masa Berlaku *</label>
-                        <select name="validity_type" required class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500">
-                            <option value="2-Year">2-Year (Berkala 2 Tahun)</option>
-                            <option value="Forever" selected>Forever (Permanen)</option>
-                        </select>
-                    </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Masa Berlaku (Validity) *</label>
+                    <select name="validity_type" required class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500">
+                        <option value="2-Year">2-Year (Berkala 2 Tahun)</option>
+                        <option value="Forever" selected>Forever (Permanen)</option>
+                    </select>
                 </div>
 
                 <div class="pt-2 flex justify-end gap-2">
@@ -235,27 +225,21 @@
                 @csrf
                 @method('PUT')
                 <div>
-                    <label class="block text-xs font-semibold text-slate-400 mb-1">Jabatan</label>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Jabatan (Job Title)</label>
                     <p class="text-sm font-bold text-white" x-text="editItem.job_title"></p>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-400 mb-1">Nama Modul</label>
+                    <label class="block text-xs font-semibold text-slate-400 mb-1">Nama Pelatihan (Training Type)</label>
                     <p class="text-sm font-semibold text-indigo-300" x-text="editItem.training_name"></p>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3">
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Kode Training</label>
-                        <input type="text" name="training_code" :value="editItem.training_code" class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-300 mb-1">Masa Berlaku *</label>
-                        <select name="validity_type" x-model="editItem.validity_type" required class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500">
-                            <option value="2-Year">2-Year (Berkala 2 Tahun)</option>
-                            <option value="Forever">Forever (Permanen)</option>
-                        </select>
-                    </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Masa Berlaku (Validity) *</label>
+                    <select name="validity_type" x-model="editItem.validity_type" required class="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-xl text-xs text-white focus:outline-none focus:border-indigo-500">
+                        <option value="2-Year">2-Year (Berkala 2 Tahun)</option>
+                        <option value="Forever">Forever (Permanen)</option>
+                    </select>
                 </div>
 
                 <div class="pt-2 flex justify-end gap-2">

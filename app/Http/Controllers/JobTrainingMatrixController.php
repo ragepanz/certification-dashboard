@@ -15,8 +15,7 @@ class JobTrainingMatrixController extends Controller
             $search = $request->input('search');
             $query->where(function ($q) use ($search) {
                 $q->where('job_title', 'like', "%{$search}%")
-                  ->orWhere('training_name', 'like', "%{$search}%")
-                  ->orWhere('training_code', 'like', "%{$search}%");
+                  ->orWhere('training_name', 'like', "%{$search}%");
             });
         }
 
@@ -56,7 +55,6 @@ class JobTrainingMatrixController extends Controller
         $validated = $request->validate([
             'job_title' => 'required|string|max:255',
             'training_name' => 'required|string|max:255',
-            'training_code' => 'nullable|string|max:50',
             'validity_type' => 'required|in:2-Year,Forever',
             'no_need_training' => 'nullable|boolean',
         ]);
@@ -71,20 +69,18 @@ class JobTrainingMatrixController extends Controller
             $validated
         );
 
-        return redirect()->route('matrix.index')->with('success', 'Aturan matriks training berhasil disimpan.');
+        return redirect()->route('matrix.index')->with('success', 'Aturan Training Mandatory berhasil disimpan.');
     }
 
     public function update(Request $request, JobTrainingMatrix $matrix)
     {
         $validated = $request->validate([
             'validity_type' => 'required|in:2-Year,Forever',
-            'training_code' => 'nullable|string|max:50',
             'no_need_training' => 'nullable|boolean',
         ]);
 
         $matrix->update([
             'validity_type' => $validated['validity_type'],
-            'training_code' => $validated['training_code'] ?? $matrix->training_code,
             'no_need_training' => $request->has('no_need_training'),
         ]);
 
