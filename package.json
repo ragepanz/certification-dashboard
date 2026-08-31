@@ -3,7 +3,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
+        "build": "echo 'Building Laravel for Vercel' && mkdir -p public/build",
         "dev": "vite"
     },
     "devDependencies": {
