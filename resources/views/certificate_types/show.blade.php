@@ -101,7 +101,7 @@
                     <tr class="border-b border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider bg-slate-900/60">
                         <th class="py-3.5 px-4">Pegawai</th>
                         <th class="py-3.5 px-4">Unit Kerja</th>
-                        <th class="py-3.5 px-4">Tanggal Expired</th>
+                        <th class="py-3.5 px-4">Masa Berlaku</th>
                         <th class="py-3.5 px-4">Sisa Waktu</th>
                         <th class="py-3.5 px-4">Status</th>
                         <th class="py-3.5 px-4 text-right">Aksi</th>

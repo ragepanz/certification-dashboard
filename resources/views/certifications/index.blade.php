@@ -132,7 +132,7 @@
                         <th class="py-3.5 px-4">Pegawai</th>
                         <th class="py-3.5 px-4">Unit</th>
                         <th class="py-3.5 px-4">Nama Sertifikasi</th>
-                        <th class="py-3.5 px-4">Tanggal Expired</th>
+                        <th class="py-3.5 px-4">Masa Berlaku</th>
                         <th class="py-3.5 px-4">Status</th>
                         <th class="py-3.5 px-4 text-right">Aksi</th>
                     </tr>

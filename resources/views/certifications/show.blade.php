@@ -93,7 +93,7 @@
             <div class="p-5 rounded-2xl bg-slate-800/50 border border-slate-700/60 space-y-3 text-xs">
                 <h4 class="font-bold text-white uppercase tracking-wider text-[11px] text-slate-400 mb-2">Detail Masa Berlaku</h4>
                 <div class="flex justify-between">
-                    <span class="text-slate-400">Tanggal Expired:</span>
+                    <span class="text-slate-400">Masa Berlaku:</span>
                     @if($certification->expiry_date)
                         <strong class="{{ $certification->status === 'expired' ? 'text-rose-400' : 'text-emerald-400' }}">
                             {{ $certification->expiry_date->format('d F Y') }}
@@ -103,7 +103,7 @@
                     @endif
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-slate-400">Sisa Hari Menuju Expired:</span>
+                    <span class="text-slate-400">Sisa Waktu:</span>
                     @if($certification->expiry_date)
                         @if($certification->overridden_by_excel)
                             <span class="font-bold {{ $certification->status === 'expired' ? 'text-rose-400' : ($certification->status === 'warning' ? 'text-amber-400' : 'text-emerald-400') }}">

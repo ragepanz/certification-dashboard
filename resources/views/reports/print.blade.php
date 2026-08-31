@@ -48,7 +48,7 @@
                 <th style="width: 20%;">Nama Pegawai</th>
                 <th style="width: 14%;">Unit Kerja</th>
                 <th style="width: 28%;">Nama Sertifikasi</th>
-                <th style="width: 16%;">Tanggal Expired</th>
+                <th style="width: 16%;">Masa Berlaku</th>
                 <th style="width: 12%;">Status</th>
             </tr>
         </thead>
