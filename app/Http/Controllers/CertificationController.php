@@ -341,30 +341,63 @@ class CertificationController extends Controller
 
         $employees = $query->orderBy('name')->get();
 
-        // Get distinct list of certificate names
-        $certNames = Certification::distinct()->orderBy('certificate_name')->pluck('certificate_name')->toArray();
+        // Paired training modules (Date Column + Status Column)
+        $pairedModules = [
+            'Human Factor' => 'HF Status',
+            'Safety Management System' => 'SMS Status',
+            'GMF Quality System' => 'QS Status',
+            'CASR Part 145' => 'CASR Status',
+            'FAR Part 145' => 'FAR Status',
+            'EASA Part 145' => 'EASA Status',
+            'EASA Part M' => 'Part M Status',
+            'Fuel Tank Safety' => 'FTS Status',
+            'EWIS' => 'EWIS Status',
+            'Dangerous Good' => 'DG Status',
+        ];
 
-        $filename = 'training_data_matriks_' . date('Ymd_His') . '.csv';
+        // Single date permanent modules (Column 28 to 67)
+        $singleModules = [
+            'ADTH', 'Basic Inspection', 'Basic Supervisory Training', 'Certifying Staff',
+            'Fundamental Troubleshooting', 'Training of Trainer', 'Basic Planning',
+            'Basic Engineering', 'Aircraft Familiarization', 'GMF Logistic Business',
+            'Warehouse Management', 'Material Handling', 'Aircraft Exterior & Interior Cleaning',
+            'GSE Type Rating', 'Aviation Legislation Module 10', 'Leadership Skill Training',
+            'MRO Management', 'MRO Finance', 'Project Management basic', 'OLP',
+            'Office Administration', 'Basic Accounting Module', 'Service Excelent',
+            'Management for Secretary', 'RII', 'Lead Auditor Course', 'SWIFT Training',
+            'IFE', 'Orientation Training', 'BCT', 'BAM', 'BATK', 'GAK',
+            'Type Rating Level III Training', '1', '2', '3',
+            'Simplified Technical English', 'Radio Telephony', 'B737 BCF',
+        ];
+
+        $filename = 'Training_Dinas_TN_Export_' . date('Ymd_His') . '.csv';
 
         $headers = [
             'Content-Type' => 'text/csv; charset=UTF-8',
             'Content-Disposition' => "attachment; filename=\"{$filename}\"",
         ];
 
-        return response()->stream(function () use ($employees, $certNames) {
+        return response()->stream(function () use ($employees, $pairedModules, $singleModules) {
             $file = fopen('php://output', 'w');
             fputs($file, "\xEF\xBB\xBF"); // UTF-8 BOM for Microsoft Excel
 
-            // Header columns
-            $headerRow = array_merge([
+            // Build Exact Header Row matching Training Dinas TN.xlsx
+            $headerRow = [
                 'No',
-                'No. Pegawai',
-                'Nama Lengkap',
+                'Emp ID',
+                'Name',
                 'Job Title',
-                'Email',
-                'Unit Kerja',
-                'Total Sertifikasi'
-            ], $certNames);
+                'Unit',
+            ];
+
+            foreach ($pairedModules as $tName => $sName) {
+                $headerRow[] = $tName;
+                $headerRow[] = $sName;
+            }
+
+            foreach ($singleModules as $sMod) {
+                $headerRow[] = $sMod;
+            }
 
             fputcsv($file, $headerRow, ';');
 
@@ -376,17 +409,28 @@ class CertificationController extends Controller
                     $emp->employee_number ?? '-',
                     $emp->name,
                     $emp->job_title ?? '-',
-                    $emp->email,
                     $emp->unit ?? '-',
-                    $emp->certifications->count(),
                 ];
 
-                foreach ($certNames as $cName) {
-                    if (isset($empCerts[$cName])) {
-                        $c = $empCerts[$cName];
-                        $row[] = $c->expiry_date ? $c->expiry_date->format('Y-m-d') : 'Permanen';
+                // Paired columns: Date + Status
+                foreach ($pairedModules as $tName => $sName) {
+                    if (isset($empCerts[$tName])) {
+                        $c = $empCerts[$tName];
+                        $row[] = $c->expiry_date ? $c->expiry_date->format('Y-m-d') : ($c->issue_date ? $c->issue_date->format('Y-m-d') : '-');
+                        $row[] = $c->excel_status ? ucfirst($c->excel_status) : ($c->status === 'expired' ? 'Expired' : ($c->status === 'warning' ? 'Expiring' : 'Valid'));
                     } else {
-                        $row[] = '-';
+                        $row[] = '';
+                        $row[] = '';
+                    }
+                }
+
+                // Single date modules
+                foreach ($singleModules as $sMod) {
+                    if (isset($empCerts[$sMod])) {
+                        $c = $empCerts[$sMod];
+                        $row[] = $c->expiry_date ? $c->expiry_date->format('Y-m-d') : ($c->issue_date ? $c->issue_date->format('Y-m-d') : 'Valid');
+                    } else {
+                        $row[] = '';
                     }
                 }
 
