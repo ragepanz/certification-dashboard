@@ -145,7 +145,15 @@ class DashboardController extends Controller
             $perPage = 25;
         }
 
-        $certifications = $query->orderByRaw('expiry_date IS NULL, expiry_date ASC')->paginate($perPage)->withQueryString();
+        // Urutkan prioritas: Expired (1) -> Expiring/Warning (2) -> Aktif (3) -> Tanggal terdekat
+        $certifications = $query->orderByRaw("
+            CASE 
+                WHEN excel_status = 'expired' OR (excel_status IS NULL AND expiry_date IS NOT NULL AND expiry_date < '{$today->format('Y-m-d')}') THEN 1
+                WHEN excel_status = 'expiring' OR (excel_status IS NULL AND expiry_date IS NOT NULL AND expiry_date >= '{$today->format('Y-m-d')}' AND expiry_date <= '{$today->copy()->addDays(60)->format('Y-m-d')}') THEN 2
+                ELSE 3
+            END ASC,
+            expiry_date ASC
+        ")->paginate($perPage)->withQueryString();
 
         // Distinct lists for filter dropdowns
         $units = User::whereNotNull('unit')->distinct()->pluck('unit');

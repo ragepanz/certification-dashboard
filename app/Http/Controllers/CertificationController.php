@@ -47,10 +47,15 @@ class CertificationController extends Controller
 
         $perPage = (int) $request->input('per_page', 25);
         if (!in_array($perPage, [10, 25, 50, 100])) {
-            $perPage = 25;
-        }
-
-        $certifications = $query->orderBy('expiry_date', 'asc')->paginate($perPage)->withQueryString();
+        $today = Carbon::today();
+        $certifications = $query->orderByRaw("
+            CASE 
+                WHEN excel_status = 'expired' OR (excel_status IS NULL AND expiry_date IS NOT NULL AND expiry_date < '{$today->format('Y-m-d')}') THEN 1
+                WHEN excel_status = 'expiring' OR (excel_status IS NULL AND expiry_date IS NOT NULL AND expiry_date >= '{$today->format('Y-m-d')}' AND expiry_date <= '{$today->copy()->addDays(60)->format('Y-m-d')}') THEN 2
+                ELSE 3
+            END ASC,
+            expiry_date ASC
+        ")->paginate($perPage)->withQueryString();
 
         $units = User::whereNotNull('unit')->distinct()->pluck('unit');
         $certificateNames = Certification::distinct()->pluck('certificate_name');
