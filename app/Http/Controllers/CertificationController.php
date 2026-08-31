@@ -47,6 +47,9 @@ class CertificationController extends Controller
 
         $perPage = (int) $request->input('per_page', 25);
         if (!in_array($perPage, [10, 25, 50, 100])) {
+            $perPage = 25;
+        }
+
         $today = Carbon::today();
         $certifications = $query->orderByRaw("
             CASE 
