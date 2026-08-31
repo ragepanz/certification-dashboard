@@ -116,7 +116,7 @@ class CertificationController extends Controller
             'certificate_file' => ['nullable', 'file', 'mimes:pdf,jpg,jpeg,png', 'max:10240'],
         ]);
 
-        $oldExpiry = $certification->expiry_date->format('Y-m-d');
+        $oldExpiry = $certification->expiry_date ? $certification->expiry_date->format('Y-m-d') : null;
         $newExpiry = Carbon::parse($validated['expiry_date'])->format('Y-m-d');
 
         if ($request->hasFile('certificate_file')) {
@@ -131,6 +131,7 @@ class CertificationController extends Controller
             $updateData = [
                 'certificate_name' => $validated['certificate_name'],
                 'expiry_date' => $validated['expiry_date'],
+                'excel_status' => null, // Reset Excel override so live date calculation takes effect
             ];
 
             if (isset($validated['certificate_file'])) {
