@@ -73,7 +73,7 @@
                             </div>
 
                             <div class="space-y-1 text-xs text-slate-300">
-                                <p class="text-slate-400">Expired: <span class="font-semibold {{ $cert->status === 'expired' ? 'text-rose-400' : ($cert->status === 'warning' ? 'text-amber-400' : 'text-slate-200') }}">{{ $cert->expiry_date->format('d/m/Y') }}</span></p>
+                                <p class="text-slate-400">Expired: <span class="font-semibold {{ $cert->status === 'expired' ? 'text-rose-400' : ($cert->status === 'warning' ? 'text-amber-400' : 'text-slate-200') }}">{{ $cert->expiry_date ? $cert->expiry_date->format('d/m/Y') : 'Permanen' }}</span></p>
                             </div>
                         </div>
 

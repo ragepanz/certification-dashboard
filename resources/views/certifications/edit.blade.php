@@ -67,9 +67,9 @@
                 <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
                     Tanggal Expired / Masa Berlaku Baru <span class="text-rose-400">*</span>
                 </label>
-                <input type="date" name="expiry_date" value="{{ old('expiry_date', $certification->expiry_date->format('Y-m-d')) }}" required
+                <input type="date" name="expiry_date" value="{{ old('expiry_date', $certification->expiry_date?->format('Y-m-d')) }}" required
                        class="w-full px-4 py-3 bg-slate-800/70 border border-indigo-500/50 rounded-xl text-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <p class="text-[11px] text-slate-400 mt-1">Tanggal expired lama: <span class="text-amber-400 font-semibold">{{ $certification->expiry_date->format('d F Y') }}</span></p>
+                <p class="text-[11px] text-slate-400 mt-1">Tanggal expired saat ini: <span class="text-amber-400 font-semibold">{{ $certification->expiry_date ? $certification->expiry_date->format('d F Y') : 'Permanen / Tidak Ada Expired' }}</span></p>
             </div>
 
             <div>

@@ -159,14 +159,19 @@
                                 {{ $cert->certificate_name }}
                             </td>
                             <td class="py-3 px-4 font-bold text-xs {{ $cert->status === 'expired' ? 'text-rose-400' : ($cert->status === 'warning' ? 'text-amber-400' : 'text-slate-100') }}">
-                                {{ $cert->expiry_date->format('d M Y') }}
-                                <span class="block text-xs font-normal {{ $cert->status === 'expired' ? 'text-rose-400/90' : ($cert->status === 'warning' ? 'text-amber-400/90' : 'text-slate-400') }} mt-0.5">
-                                    @if($cert->overridden_by_excel)
-                                        {{ $cert->status === 'expired' ? 'Expired (Excel)' : ($cert->status === 'warning' ? 'Akan Expired (Excel)' : 'Valid (Excel)') }}
-                                    @else
-                                        {{ $days < 0 ? 'Lewat ' . abs($days) . ' hari' : ($days == 0 ? 'Hari ini' : 'Sisa ' . $days . ' hari') }}
-                                    @endif
-                                </span>
+                                @if($cert->expiry_date)
+                                    {{ $cert->expiry_date->format('d M Y') }}
+                                    <span class="block text-xs font-normal {{ $cert->status === 'expired' ? 'text-rose-400/90' : ($cert->status === 'warning' ? 'text-amber-400/90' : 'text-slate-400') }} mt-0.5">
+                                        @if($cert->overridden_by_excel)
+                                            {{ $cert->status === 'expired' ? 'Expired (Excel)' : ($cert->status === 'warning' ? 'Akan Expired (Excel)' : 'Valid (Excel)') }}
+                                        @else
+                                            {{ $days < 0 ? 'Lewat ' . abs($days) . ' hari' : ($days == 0 ? 'Hari ini' : 'Sisa ' . $days . ' hari') }}
+                                        @endif
+                                    </span>
+                                @else
+                                    <span class="text-slate-300 font-normal">-</span>
+                                    <span class="block text-[10px] text-emerald-400 font-medium mt-0.5">Permanen (Tanpa Expired)</span>
+                                @endif
                             </td>
 
                             <td class="py-3 px-4">
