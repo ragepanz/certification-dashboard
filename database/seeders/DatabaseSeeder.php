@@ -60,6 +60,7 @@ class DatabaseSeeder extends Seeder
                 foreach ($empData['certs'] as $certItem) {
                     try {
                         $expiryDate = $certItem['expiry_date'] ? Carbon::parse($certItem['expiry_date'])->format('Y-m-d') : null;
+                        $issueDate = (!empty($certItem['issue_date'])) ? Carbon::parse($certItem['issue_date'])->format('Y-m-d') : null;
 
                         Certification::updateOrCreate(
                             [
@@ -67,6 +68,7 @@ class DatabaseSeeder extends Seeder
                                 'certificate_name' => $certItem['name'],
                             ],
                             [
+                                'issue_date' => $issueDate,
                                 'expiry_date' => $expiryDate,
                                 'excel_status' => $certItem['status'] ?? null,
                             ]

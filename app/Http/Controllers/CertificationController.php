@@ -416,8 +416,10 @@ class CertificationController extends Controller
                 foreach ($pairedModules as $tName => $sName) {
                     if (isset($empCerts[$tName])) {
                         $c = $empCerts[$tName];
-                        $row[] = $c->expiry_date ? $c->expiry_date->format('Y-m-d') : ($c->issue_date ? $c->issue_date->format('Y-m-d') : '-');
-                        $row[] = $c->excel_status ? ucfirst($c->excel_status) : ($c->status === 'expired' ? 'Expired' : ($c->status === 'warning' ? 'Expiring' : 'Valid'));
+                        $dateStr = $c->expiry_date ? $c->expiry_date->format('d/m/Y') : ($c->issue_date ? $c->issue_date->format('d/m/Y') : '');
+                        $statusStr = $c->excel_status ? ucfirst($c->excel_status) : ($c->status === 'expired' ? 'Expired' : ($c->status === 'warning' ? 'Expiring' : 'Valid'));
+                        $row[] = $dateStr;
+                        $row[] = $statusStr;
                     } else {
                         $row[] = '';
                         $row[] = '';
@@ -428,7 +430,8 @@ class CertificationController extends Controller
                 foreach ($singleModules as $sMod) {
                     if (isset($empCerts[$sMod])) {
                         $c = $empCerts[$sMod];
-                        $row[] = $c->expiry_date ? $c->expiry_date->format('Y-m-d') : ($c->issue_date ? $c->issue_date->format('Y-m-d') : 'Valid');
+                        $dateStr = $c->expiry_date ? $c->expiry_date->format('d/m/Y') : ($c->issue_date ? $c->issue_date->format('d/m/Y') : '');
+                        $row[] = $dateStr;
                     } else {
                         $row[] = '';
                     }
