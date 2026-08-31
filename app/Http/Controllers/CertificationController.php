@@ -322,6 +322,9 @@ class CertificationController extends Controller
     /**
      * Export in Original Excel Matrix Format (1 Row per Employee with all 50+ training columns)
      */
+    /**
+     * Export in Original Excel Matrix Format (.xlsx with colors matching Training Dinas TN.xlsx)
+     */
     public function exportMatrix(Request $request): StreamedResponse
     {
         $query = User::where('role', 'employee')->with('certifications');
@@ -370,16 +373,18 @@ class CertificationController extends Controller
             'Simplified Technical English', 'Radio Telephony', 'B737 BCF',
         ];
 
-        $filename = 'Training_Dinas_TN_Export_' . date('Ymd_His') . '.csv';
+        $filename = 'Training_Dinas_TN_Export_' . date('Ymd_His') . '.xlsx';
 
         $headers = [
-            'Content-Type' => 'text/csv; charset=UTF-8',
+            'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             'Content-Disposition' => "attachment; filename=\"{$filename}\"",
+            'Cache-Control' => 'max-age=0',
         ];
 
         return response()->stream(function () use ($employees, $pairedModules, $singleModules) {
-            $file = fopen('php://output', 'w');
-            fputs($file, "\xEF\xBB\xBF"); // UTF-8 BOM for Microsoft Excel
+            $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
+            $sheet->setTitle('TrainingData');
 
             // Build Exact Header Row matching Training Dinas TN.xlsx
             $headerRow = [
@@ -399,48 +404,110 @@ class CertificationController extends Controller
                 $headerRow[] = $sMod;
             }
 
-            fputcsv($file, $headerRow, ';');
+            // Write Header Row at Row 1
+            $sheet->fromArray($headerRow, null, 'A1');
 
+            // Header Styling (Dark blue-gray / soft green header)
+            $lastColLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex(count($headerRow));
+            $sheet->getStyle("A1:{$lastColLetter}1")->applyFromArray([
+                'font' => [
+                    'bold' => true,
+                    'color' => ['rgb' => 'FFFFFF'],
+                    'size' => 10,
+                ],
+                'fill' => [
+                    'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                    'startColor' => ['rgb' => '1E293B'], // Dark slate
+                ],
+                'alignment' => [
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                    'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                ],
+            ]);
+
+            // Status color palettes (Green, Orange/Yellow, Red)
+            $validFill = [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'startColor' => ['rgb' => '92D050'], // Soft green (matching original Excel)
+            ];
+            $validFont = ['color' => ['rgb' => '000000'], 'bold' => true];
+
+            $expiringFill = [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'startColor' => ['rgb' => 'FFC000'], // Warning orange
+            ];
+            $expiringFont = ['color' => ['rgb' => '000000'], 'bold' => true];
+
+            $expiredFill = [
+                'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
+                'startColor' => ['rgb' => 'FF0000'], // Red
+            ];
+            $expiredFont = ['color' => ['rgb' => 'FFFFFF'], 'bold' => true];
+
+            $currentRow = 2;
             foreach ($employees as $idx => $emp) {
                 $empCerts = $emp->certifications->keyBy('certificate_name');
 
-                $row = [
-                    $idx + 1,
-                    $emp->employee_number ?? '-',
-                    $emp->name,
-                    $emp->job_title ?? '-',
-                    $emp->unit ?? '-',
-                ];
+                $sheet->setCellValue([1, $currentRow], $idx + 1);
+                $sheet->setCellValue([2, $currentRow], $emp->employee_number ?? '-');
+                $sheet->setCellValue([3, $currentRow], $emp->name);
+                $sheet->setCellValue([4, $currentRow], $emp->job_title ?? '-');
+                $sheet->setCellValue([5, $currentRow], $emp->unit ?? '-');
 
+                $currentCol = 6;
                 // Paired columns: Date + Status
                 foreach ($pairedModules as $tName => $sName) {
                     if (isset($empCerts[$tName])) {
                         $c = $empCerts[$tName];
                         $dateStr = $c->expiry_date ? $c->expiry_date->format('d/m/Y') : ($c->issue_date ? $c->issue_date->format('d/m/Y') : '');
                         $statusStr = $c->excel_status ? ucfirst($c->excel_status) : ($c->status === 'expired' ? 'Expired' : ($c->status === 'warning' ? 'Expiring' : 'Valid'));
-                        $row[] = $dateStr;
-                        $row[] = $statusStr;
-                    } else {
-                        $row[] = '';
-                        $row[] = '';
+
+                        $sheet->setCellValue([$currentCol, $currentRow], $dateStr);
+                        $sheet->setCellValue([$currentCol + 1, $currentRow], $statusStr);
+
+                        // Apply cell background color based on status
+                        $statusCellCoord = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($currentCol + 1) . $currentRow;
+                        if (strcasecmp($statusStr, 'Valid') === 0) {
+                            $sheet->getStyle($statusCellCoord)->applyFromArray(['fill' => $validFill, 'font' => $validFont]);
+                        } elseif (strcasecmp($statusStr, 'Expiring') === 0 || strcasecmp($statusStr, 'Akan Expired') === 0) {
+                            $sheet->getStyle($statusCellCoord)->applyFromArray(['fill' => $expiringFill, 'font' => $expiringFont]);
+                        } elseif (strcasecmp($statusStr, 'Expired') === 0) {
+                            $sheet->getStyle($statusCellCoord)->applyFromArray(['fill' => $expiredFill, 'font' => $expiredFont]);
+                        }
                     }
+
+                    $currentCol += 2;
                 }
 
-                // Single date modules
+                // Single date permanent modules
                 foreach ($singleModules as $sMod) {
                     if (isset($empCerts[$sMod])) {
                         $c = $empCerts[$sMod];
                         $dateStr = $c->expiry_date ? $c->expiry_date->format('d/m/Y') : ($c->issue_date ? $c->issue_date->format('d/m/Y') : '');
-                        $row[] = $dateStr;
-                    } else {
-                        $row[] = '';
+                        $sheet->setCellValue([$currentCol, $currentRow], $dateStr);
+
+                        if (!empty($dateStr)) {
+                            $cellCoord = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($currentCol) . $currentRow;
+                            $sheet->getStyle($cellCoord)->applyFromArray(['fill' => $validFill, 'font' => $validFont]);
+                        }
                     }
+
+                    $currentCol++;
                 }
 
-                fputcsv($file, $row, ';');
+                $currentRow++;
             }
 
-            fclose($file);
+            // Auto-size all columns
+            for ($colIndex = 1; $colIndex <= count($headerRow); $colIndex++) {
+                $colLetter = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::stringFromColumnIndex($colIndex);
+                $sheet->getColumnDimension($colLetter)->setAutoSize(true);
+            }
+
+            $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+            $writer->save('php://output');
+            $spreadsheet->disconnectWorksheets();
+            unset($spreadsheet);
         }, 200, $headers);
     }
 
