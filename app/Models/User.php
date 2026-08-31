@@ -21,7 +21,7 @@ class User extends Authenticatable
         'email',
         'unit',
         'role',
-        'jabatan',
+        'job_title',
         'password',
     ];
 

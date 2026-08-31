@@ -80,6 +80,10 @@
                     <span class="text-slate-200">{{ $certification->user->email ?? '-' }}</span>
                 </div>
                 <div class="flex justify-between">
+                    <span class="text-slate-400">Jabatan (Job Title):</span>
+                    <span class="text-indigo-200 font-medium">{{ $certification->user->job_title ?? '-' }}</span>
+                </div>
+                <div class="flex justify-between">
                     <span class="text-slate-400">Unit Kerja:</span>
                     <span class="text-slate-200">{{ $certification->user->unit ?? '-' }}</span>
                 </div>

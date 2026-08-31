@@ -141,7 +141,12 @@
                                     </div>
                                     <div>
                                         <p class="font-bold text-xs text-white leading-snug">{{ $cert->user->name ?? '-' }}</p>
-                                        <p class="text-xs text-slate-400 font-mono">{{ $cert->user->employee_number ?? '-' }}</p>
+                                        <div class="flex items-center gap-1.5 mt-0.5">
+                                            <span class="text-[11px] text-slate-400 font-mono">{{ $cert->user->employee_number ?? '-' }}</span>
+                                            @if($cert->user->job_title)
+                                                <span class="text-[10px] px-1.5 py-0.2 rounded bg-indigo-500/15 text-indigo-300 border border-indigo-500/20 font-medium">{{ $cert->user->job_title }}</span>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                             </td>

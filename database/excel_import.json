@@ -2,6 +2,7 @@
   {
     "employee_number": "533380",
     "name": "DIAHYANI PUTRI",
+    "job_title": "Group Head",
     "unit": "JKTTLF",
     "certs": [
       {
@@ -81,6 +82,7 @@
   {
     "employee_number": "783543",
     "name": "YULIA IRAWATI",
+    "job_title": "SECRETARY",
     "unit": "JKTTN",
     "certs": [
       {
@@ -118,6 +120,7 @@
   {
     "employee_number": "532995",
     "name": "ARYO BAGUS SAMUDRO",
+    "job_title": "Division Head",
     "unit": "JKTTNL",
     "certs": [
       {
@@ -245,6 +248,7 @@
   {
     "employee_number": "581071",
     "name": "JERRY HAIKAL PAPUDI",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -366,6 +370,7 @@
   {
     "employee_number": "532717",
     "name": "ANDRI PRASETYO",
+    "job_title": "MANAGER CABIN ON DUTY",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -511,6 +516,7 @@
   {
     "employee_number": "533492",
     "name": "SURYA ANUGRAH",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -638,6 +644,7 @@
   {
     "employee_number": "583742",
     "name": "PANGERAN RAIHAN RANGKUTI",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -753,6 +760,7 @@
   {
     "employee_number": "582541",
     "name": "WAHYU P BUDIMAN",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -886,6 +894,7 @@
   {
     "employee_number": "581765",
     "name": "HERDANI INDERA PERMANA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1013,6 +1022,7 @@
   {
     "employee_number": "582542",
     "name": "FAHRUR",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1146,6 +1156,7 @@
   {
     "employee_number": "533498",
     "name": "GIANJAR D.ABIYOGA",
+    "job_title": "Department Head",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1291,6 +1302,7 @@
   {
     "employee_number": "533457",
     "name": "ADITIA KUSUMA WIBAWA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1418,6 +1430,7 @@
   {
     "employee_number": "580790",
     "name": "ARFIN SENO HASTIAN",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1527,6 +1540,7 @@
   {
     "employee_number": "580950",
     "name": "AGUNG PRAYOGI",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1654,6 +1668,7 @@
   {
     "employee_number": "584197",
     "name": "DAFFA HAUZAN",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1739,6 +1754,7 @@
   {
     "employee_number": "581601",
     "name": "OSSA FAUZI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1842,6 +1858,7 @@
   {
     "employee_number": "581602",
     "name": "RIZAL AZIS",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -1945,6 +1962,7 @@
   {
     "employee_number": "581603",
     "name": "YOSEP APISENA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -2066,6 +2084,7 @@
   {
     "employee_number": "782740",
     "name": "RAHMAT NURPALAH",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -2115,6 +2134,7 @@
   {
     "employee_number": "782741",
     "name": "AHMAD SOFYAN HARIRI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -2164,6 +2184,7 @@
   {
     "employee_number": "783021",
     "name": "MOHAMMAD FAIZ",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-1",
     "certs": [
       {
@@ -2207,6 +2228,7 @@
   {
     "employee_number": "580786",
     "name": "ILHAM NUGRAHA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -2322,6 +2344,7 @@
   {
     "employee_number": "581619",
     "name": "ARIF FIKRY ABDUL MUBAROK",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -2443,6 +2466,7 @@
   {
     "employee_number": "582686",
     "name": "SYAFRIZAL D A M",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -2570,6 +2594,7 @@
   {
     "employee_number": "582679",
     "name": "YOGI CATUR",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -2667,6 +2692,7 @@
   {
     "employee_number": "582544",
     "name": "YONAZ HAND",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -2770,6 +2796,7 @@
   {
     "employee_number": "528874",
     "name": "ANWAR MURSALIM",
+    "job_title": "Department Head",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -2891,6 +2918,7 @@
   {
     "employee_number": "533460",
     "name": "DENNIS MUNTAHARICNA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3018,6 +3046,7 @@
   {
     "employee_number": "582613",
     "name": "MUSAWWIR",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3133,6 +3162,7 @@
   {
     "employee_number": "582134",
     "name": "BAGUS DWI KUSWANTO SAPUTRA",
+    "job_title": "AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3230,6 +3260,7 @@
   {
     "employee_number": "532748",
     "name": "MUHAMMAD UMAR DHONI SAPUTRO",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3363,6 +3394,7 @@
   {
     "employee_number": "533504",
     "name": "A. RIFKY GESURI",
+    "job_title": "SENIOR AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3484,6 +3516,7 @@
   {
     "employee_number": "584249",
     "name": "MOHAMMED IKROM ASYSYAKUUR",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3569,6 +3602,7 @@
   {
     "employee_number": "582685",
     "name": "AHMAD WILDAN NASHRULLOH",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3684,6 +3718,7 @@
   {
     "employee_number": "581612",
     "name": "PEGGY ASRUL SANI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3793,6 +3828,7 @@
   {
     "employee_number": "581618",
     "name": "EKO WASYANTO",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3902,6 +3938,7 @@
   {
     "employee_number": "782742",
     "name": "NURWANDI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3945,6 +3982,7 @@
   {
     "employee_number": "782743",
     "name": "NUR KHOLIS",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -3988,6 +4026,7 @@
   {
     "employee_number": "782750",
     "name": "HENDRI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -4025,6 +4064,7 @@
   {
     "employee_number": "783022",
     "name": "MARNO WIBOWO",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-2",
     "certs": [
       {
@@ -4068,6 +4108,7 @@
   {
     "employee_number": "580797",
     "name": "AFRIZAL ANDI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -4195,6 +4236,7 @@
   {
     "employee_number": "581567",
     "name": "YANA SUPRIATNA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -4310,6 +4352,7 @@
   {
     "employee_number": "582681",
     "name": "DHIRGANTARA FAJRINIO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -4425,6 +4468,7 @@
   {
     "employee_number": "583741",
     "name": "M FIKRI ADRIAN",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -4540,6 +4584,7 @@
   {
     "employee_number": "581711",
     "name": "JAMALLULLAEL NILAI BASTANTA BONANI PASOGIT",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -4655,6 +4700,7 @@
   {
     "employee_number": "582594",
     "name": "GENTA PRAMUDITA",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -4764,6 +4810,7 @@
   {
     "employee_number": "582115",
     "name": "ENGGAR DWI KUNCORO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -4885,6 +4932,7 @@
   {
     "employee_number": "533458",
     "name": "ADNAN KURNIAWAN",
+    "job_title": "Department Head",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5030,6 +5078,7 @@
   {
     "employee_number": "533502",
     "name": "RAHMAT RISKI",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5139,6 +5188,7 @@
   {
     "employee_number": "533470",
     "name": "SYAFIK SIHAB N H",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5254,6 +5304,7 @@
   {
     "employee_number": "584250",
     "name": "ALFIAN DWI PRIAMBODO",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5345,6 +5396,7 @@
   {
     "employee_number": "581608",
     "name": "BAGUSTIANTO A.",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5472,6 +5524,7 @@
   {
     "employee_number": "581609",
     "name": "ANGGER WINTA PRASETIA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5599,6 +5652,7 @@
   {
     "employee_number": "533471",
     "name": "TRI PRASETIA UTAMA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5726,6 +5780,7 @@
   {
     "employee_number": "582043",
     "name": "RADEN RUDIANSYAH",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5841,6 +5896,7 @@
   {
     "employee_number": "782744",
     "name": "JULI SISWANTO",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5890,6 +5946,7 @@
   {
     "employee_number": "782745",
     "name": "RENDI SATRIA PURNAMA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5939,6 +5996,7 @@
   {
     "employee_number": "783023",
     "name": "FAHMI ANUGRAH DWI PUTRA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-3",
     "certs": [
       {
@@ -5982,6 +6040,7 @@
   {
     "employee_number": "580787",
     "name": "DANAN TRIAWAN",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -6097,6 +6156,7 @@
   {
     "employee_number": "581310",
     "name": "ADAM FIRMANSYAH",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -6218,6 +6278,7 @@
   {
     "employee_number": "581616",
     "name": "DIMAS DWIGALIH",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -6345,6 +6406,7 @@
   {
     "employee_number": "582682",
     "name": "MUHAMAD MAULUDDIN",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -6478,6 +6540,7 @@
   {
     "employee_number": "583733",
     "name": "RAKHA VIVALDI NOVALLINO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -6593,6 +6656,7 @@
   {
     "employee_number": "533496",
     "name": "ARIFIN",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -6702,6 +6766,7 @@
   {
     "employee_number": "533508",
     "name": "DIAN PRADIPTA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -6817,6 +6882,7 @@
   {
     "employee_number": "581761",
     "name": "RICKY PRASETYO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -6944,6 +7010,7 @@
   {
     "employee_number": "584035",
     "name": "RISKY SAPUTRA ARMAN",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7035,6 +7102,7 @@
   {
     "employee_number": "582687",
     "name": "MEILINDA SURYANI",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7132,6 +7200,7 @@
   {
     "employee_number": "582684",
     "name": "RIZKY FAUZI",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7241,6 +7310,7 @@
   {
     "employee_number": "533478",
     "name": "FAJRIN SARSONO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7356,6 +7426,7 @@
   {
     "employee_number": "532984",
     "name": "TENGKU PERKASA S",
+    "job_title": "Department Head",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7501,6 +7572,7 @@
   {
     "employee_number": "533520",
     "name": "MAREDA NURDIANSYAH",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7628,6 +7700,7 @@
   {
     "employee_number": "533485",
     "name": "ADI BUDIONO",
+    "job_title": "AIRCRAFT MAINTENANCE ENGINEER",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7767,6 +7840,7 @@
   {
     "employee_number": "584253",
     "name": "GALIH PRASETYO RAMADHAN",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7852,6 +7926,7 @@
   {
     "employee_number": "782746",
     "name": "AGUS WIDIYANTO",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7901,6 +7976,7 @@
   {
     "employee_number": "782747",
     "name": "FIAN AL JUPRI SINAGA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7950,6 +8026,7 @@
   {
     "employee_number": "783025",
     "name": "MARZUKI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-4",
     "certs": [
       {
@@ -7999,6 +8076,7 @@
   {
     "employee_number": "580788",
     "name": "BOBY SYAPUTRA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -8132,6 +8210,7 @@
   {
     "employee_number": "580791",
     "name": "TAUFIQ HIDAYAT",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -8277,6 +8356,7 @@
   {
     "employee_number": "583737",
     "name": "ARYA PUTRA RAMADHANY",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -8398,6 +8478,7 @@
   {
     "employee_number": "582709",
     "name": "NURMIDA LISNANI",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -8525,6 +8606,7 @@
   {
     "employee_number": "582688",
     "name": "DINO DWI F",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -8640,6 +8722,7 @@
   {
     "employee_number": "533486",
     "name": "AHMAD ABDUL ROZAK",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -8761,6 +8844,7 @@
   {
     "employee_number": "581759",
     "name": "DONI KURNIAWAN",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -8882,6 +8966,7 @@
   {
     "employee_number": "581766",
     "name": "M. HERMANTO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9015,6 +9100,7 @@
   {
     "employee_number": "582545",
     "name": "ALFIAN DARMAWAN",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9154,6 +9240,7 @@
   {
     "employee_number": "582683",
     "name": "GANDHI ARRAFI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9263,6 +9350,7 @@
   {
     "employee_number": "533519",
     "name": "ISYOGO WAHYU NUGROHO",
+    "job_title": "MANAGER CABIN ON DUTY",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9396,6 +9484,7 @@
   {
     "employee_number": "533522",
     "name": "SAIFUL WALID",
+    "job_title": "Department Head",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9559,6 +9648,7 @@
   {
     "employee_number": "584542",
     "name": "ACHMAD FAHRUL AMRY",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9650,6 +9740,7 @@
   {
     "employee_number": "584318",
     "name": "MUH. FADHIL SYAHPUTRA ARIFIN",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9741,6 +9832,7 @@
   {
     "employee_number": "584312",
     "name": "ASO ANDI MARODHANI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9826,6 +9918,7 @@
   {
     "employee_number": "533461",
     "name": "DENY ADITYAWARDANA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -9953,6 +10046,7 @@
   {
     "employee_number": "782748",
     "name": "RICO APRIANA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -10002,6 +10096,7 @@
   {
     "employee_number": "782749",
     "name": "YAN CHRIS HANDOKO",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -10057,6 +10152,7 @@
   {
     "employee_number": "783024",
     "name": "WAHYU SETIAWAN",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -10106,6 +10202,7 @@
   {
     "employee_number": "783554",
     "name": "TATANG",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-5",
     "certs": [
       {
@@ -10209,6 +10306,7 @@
   {
     "employee_number": "580792",
     "name": "FADEL MUHAMMAD",
+    "job_title": "AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -10312,6 +10410,7 @@
   {
     "employee_number": "580807",
     "name": "RESTU AGUNG",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -10433,6 +10532,7 @@
   {
     "employee_number": "581479",
     "name": "BAYU HANDOYO",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -10536,6 +10636,7 @@
   {
     "employee_number": "581604",
     "name": "FEBI FERDIANSYAH",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -10645,6 +10746,7 @@
   {
     "employee_number": "581607",
     "name": "RAHMAT RIYADI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -10766,6 +10868,7 @@
   {
     "employee_number": "581610",
     "name": "DIMAS SURYO PERSODO",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -10875,6 +10978,7 @@
   {
     "employee_number": "582539",
     "name": "RENDRA ARDIANA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -10996,6 +11100,7 @@
   {
     "employee_number": "583731",
     "name": "AMRIZAL GUSFANI",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11111,6 +11216,7 @@
   {
     "employee_number": "583738",
     "name": "DINANDA AGIL PRAKOSO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11226,6 +11332,7 @@
   {
     "employee_number": "583734",
     "name": "SATRIA WIJAYANTO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11341,6 +11448,7 @@
   {
     "employee_number": "532704",
     "name": "NOOR CAHYA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11480,6 +11588,7 @@
   {
     "employee_number": "580635",
     "name": "M CHUSNUL ADIB",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11613,6 +11722,7 @@
   {
     "employee_number": "782751",
     "name": "OKTA HATAMI ADITAMA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11656,6 +11766,7 @@
   {
     "employee_number": "782752",
     "name": "ACHMADI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11693,6 +11804,7 @@
   {
     "employee_number": "782753",
     "name": "ANDI KURNIAWAN",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11730,6 +11842,7 @@
   {
     "employee_number": "782754",
     "name": "FIRMANSYAH",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11773,6 +11886,7 @@
   {
     "employee_number": "582691",
     "name": "REZA NENDRA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -11912,6 +12026,7 @@
   {
     "employee_number": "582232",
     "name": "DIMAS ANGGORO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -12021,6 +12136,7 @@
   {
     "employee_number": "582701",
     "name": "M. REZA SAPUTRA",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -12154,6 +12270,7 @@
   {
     "employee_number": "582602",
     "name": "MOH JUSRAN ALI",
+    "job_title": "AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -12245,6 +12362,7 @@
   {
     "employee_number": "582706",
     "name": "DENNY SETYO ANUGERAH",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -12372,6 +12490,7 @@
   {
     "employee_number": "583743",
     "name": "M. ASIS",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -12499,6 +12618,7 @@
   {
     "employee_number": "533476",
     "name": "AGUNG SLAMET RIYADI",
+    "job_title": "AIRCRAFT MAINTENANCE ENGINEER",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -12632,6 +12752,7 @@
   {
     "employee_number": "581763",
     "name": "DIMAS HANI",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -12753,6 +12874,7 @@
   {
     "employee_number": "533482",
     "name": "IMAM HENDRANOTO",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -12880,6 +13002,7 @@
   {
     "employee_number": "582608",
     "name": "TIRTA SWARGA",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13001,6 +13124,7 @@
   {
     "employee_number": "581769",
     "name": "ILHAM KUSUMA REDYANSYAH",
+    "job_title": "MANAGER CABIN ON DUTY",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13134,6 +13258,7 @@
   {
     "employee_number": "584036",
     "name": "RONY ERYA WARDANA",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13231,6 +13356,7 @@
   {
     "employee_number": "584034",
     "name": "FIQRI RAKA FADILLAH",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13340,6 +13466,7 @@
   {
     "employee_number": "583620",
     "name": "MUHAMMAD LUTHFI WIDIANTO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13455,6 +13582,7 @@
   {
     "employee_number": "581767",
     "name": "DAVID S.",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13570,6 +13698,7 @@
   {
     "employee_number": "582597",
     "name": "RIZA NUGRAHA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13685,6 +13814,7 @@
   {
     "employee_number": "783293",
     "name": "MUHAMMAD ABDURRACHMAN",
+    "job_title": "AIRCRAFT MAINTENANCE TECHNICIAN (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13734,6 +13864,7 @@
   {
     "employee_number": "533511",
     "name": "GALUH FUADY",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13861,6 +13992,7 @@
   {
     "employee_number": "783400",
     "name": "ARDO FAJAR RISTANU",
+    "job_title": "AIRCRAFT CABIN TECHNICIAN (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13904,6 +14036,7 @@
   {
     "employee_number": "783026",
     "name": "AHYA SUHENDRA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -13947,6 +14080,7 @@
   {
     "employee_number": "529186",
     "name": "FIRMAN PURNOMO",
+    "job_title": "Department Head",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14086,6 +14220,7 @@
   {
     "employee_number": "582607",
     "name": "MUH FIRMANSYAH",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14207,6 +14342,7 @@
   {
     "employee_number": "783027",
     "name": "JULISTIYO INDRA PRATAMA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14250,6 +14386,7 @@
   {
     "employee_number": "783028",
     "name": "RAHIM DARMANSYAH",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14293,6 +14430,7 @@
   {
     "employee_number": "783029",
     "name": "KURNIA SANDI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14336,6 +14474,7 @@
   {
     "employee_number": "783030",
     "name": "DICKY NURBAIDILLAH",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14379,6 +14518,7 @@
   {
     "employee_number": "783031",
     "name": "MUHAMAD LUTHFI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14422,6 +14562,7 @@
   {
     "employee_number": "783045",
     "name": "ABDUL LATIEF KUSUMA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14465,6 +14606,7 @@
   {
     "employee_number": "783401",
     "name": "MUHAMMAD ANGGIRAN FATAHILLAH",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-6",
     "certs": [
       {
@@ -14508,6 +14650,7 @@
   {
     "employee_number": "783496",
     "name": "RIDARROHMAN",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -14545,6 +14688,7 @@
   {
     "employee_number": "783497",
     "name": "ADYTHIA PRATAMA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -14582,6 +14726,7 @@
   {
     "employee_number": "783498",
     "name": "GERRY KENINA SINUKABAN",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTNL-2",
     "certs": [
       {
@@ -14613,6 +14758,7 @@
   {
     "employee_number": "783556",
     "name": "PAJAR ARDHIANTO",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -14644,6 +14790,7 @@
   {
     "employee_number": "527238",
     "name": "AMSARI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-7",
     "certs": [
       {
@@ -14741,6 +14888,7 @@
   {
     "employee_number": "582161",
     "name": "HARI SETYADI",
+    "job_title": "AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-7",
     "certs": [
       {
@@ -14832,6 +14980,7 @@
   {
     "employee_number": "581219",
     "name": "BRIAN DHANIEL",
+    "job_title": "AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-7",
     "certs": [
       {
@@ -14947,6 +15096,7 @@
   {
     "employee_number": "527717",
     "name": "YANSEN MARPAUNG",
+    "job_title": "SENIOR AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-7",
     "certs": [
       {
@@ -15050,6 +15200,7 @@
   {
     "employee_number": "533503",
     "name": "RIAN ADI NUGROHO",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLF-7",
     "certs": [
       {
@@ -15171,6 +15322,7 @@
   {
     "employee_number": "580647",
     "name": "PONDRA ADI SETIAWAN",
+    "job_title": "Department Head",
     "unit": "JKTTLF-7",
     "certs": [
       {
@@ -15298,6 +15450,7 @@
   {
     "employee_number": "783229",
     "name": "RIDO FEBRI PRATAMA",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-7",
     "certs": [
       {
@@ -15341,6 +15494,7 @@
   {
     "employee_number": "783262",
     "name": "ROZI BAMBANG SETIAWAN",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTLF-7",
     "certs": [
       {
@@ -15378,6 +15532,7 @@
   {
     "employee_number": "581292",
     "name": "WAHYU RACHMAD WILDAN",
+    "job_title": "Division Head",
     "unit": "JKTTNP",
     "certs": [
       {
@@ -15487,6 +15642,7 @@
   {
     "employee_number": "581291",
     "name": "AHMAD ZIHNI",
+    "job_title": "MANAGER CABIN ON DUTY",
     "unit": "JKTTNP",
     "certs": [
       {
@@ -15620,6 +15776,7 @@
   {
     "employee_number": "581312",
     "name": "SURYA WAHYUDHA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -15723,6 +15880,7 @@
   {
     "employee_number": "582600",
     "name": "REKA LESTARI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -15826,6 +15984,7 @@
   {
     "employee_number": "783186",
     "name": "WILDAN GUNAWAN",
+    "job_title": "SENIOR AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -15941,6 +16100,7 @@
   {
     "employee_number": "580641",
     "name": "MUHAMMAD RIZKI ARBI",
+    "job_title": "SENIOR AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -16050,6 +16210,7 @@
   {
     "employee_number": "581663",
     "name": "DENI IRAWAN",
+    "job_title": "SENIOR AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -16171,6 +16332,7 @@
   {
     "employee_number": "580642",
     "name": "ARLINGGA PRAVITASARI",
+    "job_title": "SENIOR AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -16292,6 +16454,7 @@
   {
     "employee_number": "580457",
     "name": "BAKHTIAR AHADIN NUR MUHAMMAD",
+    "job_title": "SENIOR AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -16413,6 +16576,7 @@
   {
     "employee_number": "580620",
     "name": "RIZAL YOPI PANAMA",
+    "job_title": "Department Head",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -16540,6 +16704,7 @@
   {
     "employee_number": "581868",
     "name": "IVAN NURVALAH",
+    "job_title": "SENIOR AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -16655,6 +16820,7 @@
   {
     "employee_number": "581958",
     "name": "DANANG RIZKI MOHAMED",
+    "job_title": "SENIOR AIRCRAFT CABIN CONTROLLER",
     "unit": "JKTTLF-8",
     "certs": [
       {
@@ -16776,6 +16942,7 @@
   {
     "employee_number": "581961",
     "name": "MUHAMMAD ERWANSYAH",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE PLANNING ENGINEER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -16885,6 +17052,7 @@
   {
     "employee_number": "581987",
     "name": "ROMAN BANGSACARA",
+    "job_title": "Department Head",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17012,6 +17180,7 @@
   {
     "employee_number": "582192",
     "name": "WAHYU PRATAMA",
+    "job_title": "MANAGER CABIN ON DUTY",
     "unit": "JKTTNP",
     "certs": [
       {
@@ -17127,6 +17296,7 @@
   {
     "employee_number": "582498",
     "name": "MOUDY AZURA VIANDA",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE PLANNING ENGINEER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17236,6 +17406,7 @@
   {
     "employee_number": "581949",
     "name": "DIMAS YUDISTIRA",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE PLANNING ENGINEER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17351,6 +17522,7 @@
   {
     "employee_number": "581990",
     "name": "NOVITA SARI",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE PLANNER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17460,6 +17632,7 @@
   {
     "employee_number": "581066",
     "name": "NITA AYU SYLVIA",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE PLANNER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17569,6 +17742,7 @@
   {
     "employee_number": "581276",
     "name": "DEKA BAGUS SETYO SAPUTRO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE PLANNER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17684,6 +17858,7 @@
   {
     "employee_number": "582830",
     "name": "MOHAMMAD IQBAL ARDHALEPA TURINO",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE PLANNER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17805,6 +17980,7 @@
   {
     "employee_number": "582690",
     "name": "TRISNA LIDYA ARIFIN",
+    "job_title": "AIRCRAFT MAINTENANCE PLANNER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17908,6 +18084,7 @@
   {
     "employee_number": "783227",
     "name": "ANDIKA ROBY WIYANDA",
+    "job_title": "ASSISTANT STAFF OFFICER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -17939,6 +18116,7 @@
   {
     "employee_number": "584434",
     "name": "MOHAMAD DAFA ARMANTA",
+    "job_title": "AIRCRAFT MAINTENANCE PLANNER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -18024,6 +18202,7 @@
   {
     "employee_number": "584373",
     "name": "ACHMAD RYAN PERDANA",
+    "job_title": "AIRCRAFT MAINTENANCE PLANNING ENGINEER",
     "unit": "JKTTNP-2",
     "certs": [
       {
@@ -18115,6 +18294,7 @@
   {
     "employee_number": "533521",
     "name": "MUSI UTAMA MUHAM",
+    "job_title": "OJT TO AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLC-4",
     "certs": [
       {
@@ -18242,6 +18422,7 @@
   {
     "employee_number": "533501",
     "name": "NURYADI",
+    "job_title": "SENIOR AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLC-4",
     "certs": [
       {
@@ -18375,6 +18556,7 @@
   {
     "employee_number": "582712",
     "name": "MUHAMMAD FIRDAUS",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTLC-4",
     "certs": [
       {
@@ -18520,6 +18702,7 @@
   {
     "employee_number": "783124",
     "name": "DWI SETYAWAN",
+    "job_title": "AIRCRAFT MAINTENANCE TECHNICIAN (PKWT NP)",
     "unit": "JKTTLC-4",
     "certs": [
       {
@@ -18569,6 +18752,7 @@
   {
     "employee_number": "533597",
     "name": "PENDI PRANDANA",
+    "job_title": "Department Head",
     "unit": "JKTTLC-4",
     "certs": [
       {
@@ -18714,6 +18898,7 @@
   {
     "employee_number": "582699",
     "name": "PUTRI LIYAN CHIWA",
+    "job_title": "AIRCRAFT MAINTENANCE ENGINEER",
     "unit": "JKTTLC-4",
     "certs": [
       {
@@ -18859,6 +19044,7 @@
   {
     "employee_number": "580742",
     "name": "ADI FADHLI",
+    "job_title": "Department Head",
     "unit": "JKTTNP-4",
     "certs": [
       {
@@ -18974,6 +19160,7 @@
   {
     "employee_number": "783423",
     "name": "MUHAMMAD RAYHAN ZHAFRANDO",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "View",
     "certs": [
       {
@@ -19011,6 +19198,7 @@
   {
     "employee_number": "783424",
     "name": "MUHAMAD HOLIL",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "View",
     "certs": [
       {
@@ -19048,6 +19236,7 @@
   {
     "employee_number": "783425",
     "name": "AGUS TRI MULYONO",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "View",
     "certs": [
       {
@@ -19091,6 +19280,7 @@
   {
     "employee_number": "783462",
     "name": "AUFA HIBATULLAH DIMAS PRAMBUDI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "View",
     "certs": [
       {
@@ -19122,6 +19312,7 @@
   {
     "employee_number": "783463",
     "name": "MUHAMAD NORTON",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "View",
     "certs": [
       {
@@ -19153,6 +19344,7 @@
   {
     "employee_number": "783464",
     "name": "DURI WIDOYANTI",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "View",
     "certs": [
       {
@@ -19184,6 +19376,7 @@
   {
     "employee_number": "783435",
     "name": "ANDI SURYA WIJAYA",
+    "job_title": "ASSISTANT STAFF OFFICER",
     "unit": "JKTTNP-4",
     "certs": [
       {
@@ -19215,6 +19408,7 @@
   {
     "employee_number": "584477",
     "name": "MUHAMMAD RINALDI HIDAYAT",
+    "job_title": "SENIOR AIRCRAFT MAINTENANCE TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19294,6 +19488,7 @@
   {
     "employee_number": "584541",
     "name": "JAVIER BENYAMIN CASSANOVA TALAKUA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19379,6 +19574,7 @@
   {
     "employee_number": "584556",
     "name": "DWIKI FAHREZA ANDREANTO",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19464,6 +19660,7 @@
   {
     "employee_number": "584557",
     "name": "MUHAMAD DUSTIRANSA TAQWA",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19543,6 +19740,7 @@
   {
     "employee_number": "584569",
     "name": "RINDA SAFANA LINGGI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19622,6 +19820,7 @@
   {
     "employee_number": "783659",
     "name": "RUDY DWI WANTORO",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19659,6 +19858,7 @@
   {
     "employee_number": "783660",
     "name": "MUHAMMAD ALNURZI ULFAH",
+    "job_title": "Aircraft Cabin Technician (PKWT NP)",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19696,6 +19896,7 @@
   {
     "employee_number": "584600",
     "name": "AJI SATRIO RAMADHAN",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19781,6 +19982,7 @@
   {
     "employee_number": "584603",
     "name": "NOVAL DWI KURNIANTO",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19836,6 +20038,7 @@
   {
     "employee_number": "584604",
     "name": "YONASTIO DANAR WIDHIADI",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19891,6 +20094,7 @@
   {
     "employee_number": "584613",
     "name": "ALFIAN BRANANTYO",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -19964,6 +20168,7 @@
   {
     "employee_number": "584614",
     "name": "EGAR CAHYA PANGESTU",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -20037,6 +20242,7 @@
   {
     "employee_number": "584615",
     "name": "MU'AMMAR RIZKY SANFARDIZAL",
+    "job_title": "SENIOR AIRCRAFT CABIN TECHNICIAN",
     "unit": "JKTTNL-6",
     "certs": [
       {
@@ -20098,6 +20304,7 @@
   {
     "employee_number": "584626",
     "name": "BAGUS SUHARTO",
+    "job_title": "AIRCRAFT CABIN ENGINEER",
     "unit": "JKTTNL-6",
     "certs": [
       {

@@ -49,6 +49,7 @@ data = []
 for row_idx in range(3, ws.max_row + 1):
     emp_id = ws.cell(row_idx, 2).value
     emp_name = ws.cell(row_idx, 3).value
+    job_title = ws.cell(row_idx, 4).value
     unit = ws.cell(row_idx, 6).value or ws.cell(row_idx, 7).value or 'TN'
     
     if not (emp_id and emp_name):
@@ -56,6 +57,7 @@ for row_idx in range(3, ws.max_row + 1):
     
     emp_id_str = str(emp_id).strip()
     emp_name_str = str(emp_name).strip()
+    job_title_str = str(job_title).strip() if job_title else None
     unit_str = str(unit).strip()
     
     certs = []
@@ -118,6 +120,7 @@ for row_idx in range(3, ws.max_row + 1):
         data.append({
             'employee_number': emp_id_str,
             'name': emp_name_str,
+            'job_title': job_title_str,
             'unit': unit_str,
             'certs': certs,
         })

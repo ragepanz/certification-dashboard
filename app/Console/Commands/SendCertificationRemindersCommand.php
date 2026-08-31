@@ -71,7 +71,7 @@ class SendCertificationRemindersCommand extends Command
         $specialPositions = ['Group Head', 'Division Head'];
         $specialCertificates = ['Human Factor', 'Safety Management System'];
 
-        $users = User::whereIn('jabatan', $specialPositions)->get();
+        $users = User::whereIn('job_title', $specialPositions)->get();
 
         foreach ($users as $user) {
             foreach ($specialCertificates as $certName) {
@@ -80,7 +80,7 @@ class SendCertificationRemindersCommand extends Command
                     ->first();
 
                 if (!$cert) {
-                    $this->info("Tidak ditemukan sertifikasi {$certName} untuk {$user->name} ({$user->jabatan})");
+                    $this->info("Tidak ditemukan sertifikasi {$certName} untuk {$user->name} ({$user->job_title})");
                     continue;
                 }
 

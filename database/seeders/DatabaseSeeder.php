@@ -51,6 +51,7 @@ class DatabaseSeeder extends Seeder
                         'name' => $empData['name'],
                         'email' => $email,
                         'unit' => $empData['unit'] ?? 'TN',
+                        'job_title' => $empData['job_title'] ?? null,
                         'role' => 'employee',
                         'password' => Hash::make('password'),
                     ]
