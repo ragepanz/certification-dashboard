@@ -528,7 +528,7 @@
                         usePointStyle: true,
                         callbacks: {
                             afterLabel: function() {
-                                return '👉 Klik untuk lihat daftar data pegawai';
+                                return 'Klik untuk lihat daftar data pegawai';
                             }
                         }
                     }

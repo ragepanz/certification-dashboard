@@ -130,10 +130,19 @@
                                 </span>
                             </td>
                             <td class="py-3 px-4 font-bold text-xs {{ $cert->status === 'expired' ? 'text-rose-400' : ($cert->status === 'warning' ? 'text-amber-400' : 'text-slate-100') }}">
-                                {{ $cert->expiry_date->format('d M Y') }}
+                                @if($cert->expiry_date)
+                                    {{ $cert->expiry_date->format('d M Y') }}
+                                @else
+                                    <span class="text-emerald-400 font-medium">Permanen</span>
+                                @endif
                             </td>
                             <td class="py-3 px-4 text-xs">
-                                @if($cert->overridden_by_excel)
+                                @if($cert->expiry_date === null)
+                                    <span class="inline-flex items-center gap-1 font-semibold text-emerald-400">
+                                        <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                        Permanen (Tanpa Expired)
+                                    </span>
+                                @elseif($cert->overridden_by_excel)
                                     @if($cert->status === 'active')
                                         <span class="inline-flex items-center gap-1 font-bold text-emerald-400">
                                             <i data-lucide="badge-check" class="w-3.5 h-3.5"></i>
