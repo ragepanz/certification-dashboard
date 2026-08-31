@@ -63,9 +63,17 @@
                     <td><strong>{{ $cert->user->name ?? '-' }}</strong></td>
                     <td>{{ $cert->user->unit ?? '-' }}</td>
                     <td>{{ $cert->certificate_name }}</td>
-                    <td><strong>{{ $cert->expiry_date->format('d/m/Y') }}</strong></td>
                     <td>
-                        @if($cert->overridden_by_excel)
+                        @if($cert->expiry_date)
+                            <strong>{{ $cert->expiry_date->format('d/m/Y') }}</strong>
+                        @else
+                            <span style="color: #16a34a; font-weight: bold;">Permanen</span>
+                        @endif
+                    </td>
+                    <td>
+                        @if($cert->expiry_date === null)
+                            <span class="status-active">Permanen (Tanpa Expired)</span>
+                        @elseif($cert->overridden_by_excel)
                             @if($cert->status === 'expired')
                                 <span class="status-expired">Expired (Excel)</span>
                             @elseif($cert->status === 'warning')

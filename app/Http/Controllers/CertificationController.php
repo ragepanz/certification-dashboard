@@ -305,11 +305,12 @@ class CertificationController extends Controller
                 fputcsv($file, [
                     $cert->user->employee_number ?? '-',
                     $cert->user->name ?? '-',
+                    $cert->user->job_title ?? '-',
                     $cert->user->email ?? '-',
                     $cert->user->unit ?? '-',
                     $cert->certificate_name,
-                    $cert->expiry_date->format('Y-m-d'),
-                    $cert->days_remaining,
+                    $cert->expiry_date ? $cert->expiry_date->format('Y-m-d') : '-',
+                    $cert->days_remaining ?? '-',
                     $cert->status === 'expired' ? 'Expired' : ($cert->status === 'warning' ? 'Akan Expired' : 'Aktif'),
                 ], ';');
             }
@@ -359,6 +360,7 @@ class CertificationController extends Controller
                 'No',
                 'No. Pegawai',
                 'Nama Lengkap',
+                'Job Title',
                 'Email',
                 'Unit Kerja',
                 'Total Sertifikasi'
@@ -373,6 +375,7 @@ class CertificationController extends Controller
                     $idx + 1,
                     $emp->employee_number ?? '-',
                     $emp->name,
+                    $emp->job_title ?? '-',
                     $emp->email,
                     $emp->unit ?? '-',
                     $emp->certifications->count(),
@@ -381,7 +384,7 @@ class CertificationController extends Controller
                 foreach ($certNames as $cName) {
                     if (isset($empCerts[$cName])) {
                         $c = $empCerts[$cName];
-                        $row[] = $c->expiry_date->format('Y-m-d');
+                        $row[] = $c->expiry_date ? $c->expiry_date->format('Y-m-d') : 'Permanen';
                     } else {
                         $row[] = '-';
                     }

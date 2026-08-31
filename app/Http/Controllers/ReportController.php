@@ -131,11 +131,12 @@ class ReportController extends Controller
                 fputcsv($file, [
                     $cert->user->employee_number ?? '-',
                     $cert->user->name ?? '-',
+                    $cert->user->job_title ?? '-',
                     $cert->user->email ?? '-',
                     $cert->user->unit ?? '-',
                     $cert->certificate_name,
-                    $cert->expiry_date->format('Y-m-d'),
-                    $cert->days_remaining,
+                    $cert->expiry_date ? $cert->expiry_date->format('Y-m-d') : '-',
+                    $cert->days_remaining ?? '-',
                     $cert->status === 'expired' ? 'Expired' : ($cert->status === 'warning' ? 'Akan Expired' : 'Aktif'),
                 ], ';');
             }
