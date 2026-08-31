@@ -41,6 +41,15 @@
                             <p class="text-[11px] text-slate-400 leading-tight mt-0.5">1 Baris = 1 Sertifikasi (Cocok untuk filter, pivot, dan re-import)</p>
                         </div>
                     </a>
+                    <a href="{{ route('reports.print', request()->query()) }}" target="_blank" class="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-slate-800 text-left transition-colors border-t border-slate-800/80">
+                        <div class="w-8 h-8 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="printer" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Cetak / Export PDF</p>
+                            <p class="text-[11px] text-slate-400 leading-tight mt-0.5">Format dokumen cetak resmi berkop LCU siap print atau save PDF</p>
+                        </div>
+                    </a>
                 </div>
             </div>
 

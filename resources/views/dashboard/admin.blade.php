@@ -11,14 +11,49 @@
             </h3>
             <p class="text-xs text-slate-400 mt-0.5">Memantau <strong class="text-slate-200">{{ $totalCertifications }}</strong> sertifikasi dari <strong class="text-slate-200">{{ $totalEmployees }}</strong> pegawai aktif di seluruh unit.</p>
         </div>
-        <div class="flex items-center gap-2.5">
+        <div class="flex flex-wrap items-center gap-2.5" x-data="{ exportDropdown: false }">
+            <div class="relative">
+                <button @click="exportDropdown = !exportDropdown" @click.outside="exportDropdown = false" class="inline-flex items-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold rounded-xl transition-all shadow-sm">
+                    <i data-lucide="download" class="w-4 h-4 text-cyan-400"></i>
+                    <span>Export & Cetak</span>
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
+                </button>
+                <div x-show="exportDropdown" x-cloak class="absolute right-0 mt-2 w-64 bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl p-2 z-50 space-y-1"
+                     x-transition:enter="transition ease-out duration-100"
+                     x-transition:enter-start="opacity-0 scale-95"
+                     x-transition:enter-end="opacity-100 scale-100">
+                    <a href="{{ route('certifications.export-matrix', request()->query()) }}" class="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-slate-800 text-left transition-colors">
+                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Format Matriks Asli Excel</p>
+                            <p class="text-[11px] text-slate-400 leading-tight mt-0.5">1 Baris = 1 Pegawai dengan 50+ kolom sertifikasi</p>
+                        </div>
+                    </a>
+                    <a href="{{ route('certifications.export', request()->query()) }}" class="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-slate-800 text-left transition-colors">
+                        <div class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="table" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Format Tabel Bersih (CSV)</p>
+                            <p class="text-[11px] text-slate-400 leading-tight mt-0.5">1 Baris = 1 Sertifikasi</p>
+                        </div>
+                    </a>
+                    <a href="{{ route('reports.print', request()->query()) }}" target="_blank" class="flex items-start gap-2.5 p-2.5 rounded-xl hover:bg-slate-800 text-left transition-colors border-t border-slate-800/80">
+                        <div class="w-8 h-8 rounded-lg bg-rose-500/10 text-rose-400 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="printer" class="w-4 h-4"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs font-bold text-white">Cetak / Export PDF</p>
+                            <p class="text-[11px] text-slate-400 leading-tight mt-0.5">Format dokumen cetak berkop LCU resmi</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
             <a href="{{ route('certifications.create') }}" class="inline-flex items-center gap-2 px-3.5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded-xl shadow-md shadow-indigo-600/30 transition-all">
                 <i data-lucide="plus-circle" class="w-4 h-4"></i>
                 <span>Tambah Sertifikasi</span>
-            </a>
-            <a href="{{ route('reports.index') }}" class="inline-flex items-center gap-2 px-3.5 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold rounded-xl transition-all">
-                <i data-lucide="download" class="w-4 h-4"></i>
-                <span>Laporan & Export</span>
             </a>
         </div>
     </div>

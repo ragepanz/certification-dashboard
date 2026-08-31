@@ -97,12 +97,6 @@
                             <span>Data Pegawai</span>
                         </a>
 
-                        <!-- Reports & Exports -->
-                        <a href="{{ route('reports.index') }}" 
-                           class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 {{ request()->routeIs('reports.*') ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30' : 'text-slate-300 hover:bg-slate-800/60 hover:text-white' }}">
-                            <i data-lucide="file-bar-chart" class="w-4 h-4"></i>
-                            <span>Laporan & Export</span>
-                        </a>
 
                         <!-- User / Akun Management -->
                         <a href="{{ route('users.index') }}" 
