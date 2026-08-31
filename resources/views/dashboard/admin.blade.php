@@ -142,18 +142,33 @@
             </div>
 
             <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-800 text-center">
-                <div class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-                    <p class="text-xs font-semibold text-emerald-400">Aktif</p>
-                    <p class="text-sm font-bold text-white mt-0.5">{{ $activeCount }}</p>
-                </div>
-                <div class="p-2 rounded-xl bg-amber-500/10 border border-amber-500/20">
-                    <p class="text-xs font-semibold text-amber-400">Warning</p>
-                    <p class="text-sm font-bold text-white mt-0.5">{{ $expiringCount }}</p>
-                </div>
-                <div class="p-2 rounded-xl bg-rose-500/10 border border-rose-500/20">
-                    <p class="text-xs font-semibold text-rose-400">Expired</p>
-                    <p class="text-sm font-bold text-white mt-0.5">{{ $expiredCount }}</p>
-                </div>
+                <a href="{{ route('dashboard', array_merge(request()->except('status', 'page'), [($filters['status'] ?? '') === 'active' ? null : 'status' => 'active'])) }}#monitoring-table"
+                   class="p-2 rounded-xl transition-all block cursor-pointer {{ ($filters['status'] ?? '') === 'active' ? 'bg-emerald-500/25 border-2 border-emerald-400 scale-[1.03] shadow-lg shadow-emerald-500/20' : 'bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30' }}"
+                   title="Klik untuk filter tabel: Sertifikat Aktif">
+                    <p class="text-xs font-bold text-emerald-400 flex items-center justify-center gap-1">
+                        <span>Aktif</span>
+                        @if(($filters['status'] ?? '') === 'active') <i data-lucide="check" class="w-3 h-3"></i> @endif
+                    </p>
+                    <p class="text-sm font-black text-white mt-0.5">{{ $activeCount }}</p>
+                </a>
+                <a href="{{ route('dashboard', array_merge(request()->except('status', 'page'), [($filters['status'] ?? '') === 'warning' ? null : 'status' => 'warning'])) }}#monitoring-table"
+                   class="p-2 rounded-xl transition-all block cursor-pointer {{ ($filters['status'] ?? '') === 'warning' ? 'bg-amber-500/25 border-2 border-amber-400 scale-[1.03] shadow-lg shadow-amber-500/20' : 'bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30' }}"
+                   title="Klik untuk filter tabel: Sertifikat Akan Expired (≤60 Hari)">
+                    <p class="text-xs font-bold text-amber-400 flex items-center justify-center gap-1">
+                        <span>Warning</span>
+                        @if(($filters['status'] ?? '') === 'warning') <i data-lucide="check" class="w-3 h-3"></i> @endif
+                    </p>
+                    <p class="text-sm font-black text-white mt-0.5">{{ $expiringCount }}</p>
+                </a>
+                <a href="{{ route('dashboard', array_merge(request()->except('status', 'page'), [($filters['status'] ?? '') === 'expired' ? null : 'status' => 'expired'])) }}#monitoring-table"
+                   class="p-2 rounded-xl transition-all block cursor-pointer {{ ($filters['status'] ?? '') === 'expired' ? 'bg-rose-500/25 border-2 border-rose-400 scale-[1.03] shadow-lg shadow-rose-500/20' : 'bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30' }}"
+                   title="Klik untuk filter tabel: Sertifikat Telah Expired">
+                    <p class="text-xs font-bold text-rose-400 flex items-center justify-center gap-1">
+                        <span>Expired</span>
+                        @if(($filters['status'] ?? '') === 'expired') <i data-lucide="check" class="w-3 h-3"></i> @endif
+                    </p>
+                    <p class="text-sm font-black text-white mt-0.5">{{ $expiredCount }}</p>
+                </a>
             </div>
         </div>
 
@@ -266,7 +281,7 @@
 
 
     <!-- Interactive Monitoring Table & Filter Section -->
-    <div class="bg-slate-900/80 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl backdrop-blur-md">
+    <div id="monitoring-table" class="bg-slate-900/80 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl backdrop-blur-md scroll-mt-6">
 
         <!-- Filter Header -->
         <div class="p-4 border-b border-slate-800/80 bg-slate-900/50">
@@ -459,8 +474,11 @@
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const ctx = document.getElementById('statusChart').getContext('2d');
-        new Chart(ctx, {
+        const canvas = document.getElementById('statusChart');
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        const chart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 labels: ['Aktif (>60 hr)', 'Akan Expired (≤60 hr)', 'Expired'],
@@ -468,13 +486,33 @@
                     data: [{{ $activeCount }}, {{ $expiringCount }}, {{ $expiredCount }}],
                     backgroundColor: ['#10b981', '#f59e0b', '#f43f5e'],
                     borderWidth: 0,
-                    hoverOffset: 6
+                    hoverOffset: 8
                 }]
             },
-
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                cursor: 'pointer',
+                onHover: (event, chartElement) => {
+                    event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
+                },
+                onClick: (event, elements) => {
+                    if (elements.length > 0) {
+                        const index = elements[0].index;
+                        const statusMap = ['active', 'warning', 'expired'];
+                        const targetStatus = statusMap[index];
+                        const url = new URL(window.location.href);
+                        
+                        if (url.searchParams.get('status') === targetStatus) {
+                            url.searchParams.delete('status');
+                        } else {
+                            url.searchParams.set('status', targetStatus);
+                        }
+                        url.searchParams.delete('page');
+                        url.hash = 'monitoring-table';
+                        window.location.href = url.toString();
+                    }
+                },
                 plugins: {
                     legend: {
                         display: false
@@ -487,7 +525,12 @@
                         borderWidth: 1,
                         padding: 10,
                         boxPadding: 4,
-                        usePointStyle: true
+                        usePointStyle: true,
+                        callbacks: {
+                            afterLabel: function() {
+                                return '👉 Klik untuk lihat daftar data pegawai';
+                            }
+                        }
                     }
                 },
                 cutout: '72%'
