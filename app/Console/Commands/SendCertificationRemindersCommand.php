@@ -32,10 +32,6 @@ class SendCertificationRemindersCommand extends Command
             $targetDate = $today->copy()->addDays($offset)->format('Y-m-d');
             $certs = Certification::with('user')
                 ->whereDate('expiry_date', $targetDate)
-                ->where(function ($q) {
-                    // Sertifikat yang masih Valid menurut Excel tidak perlu diingatkan
-                    $q->whereNull('excel_status')->orWhere('excel_status', '!=', 'valid');
-                })
                 ->get();
             $this->info("Ditemukan {$certs->count()} sertifikasi pada H-{$offset} ({$targetDate}).");
             foreach ($certs as $cert) {
@@ -47,10 +43,6 @@ class SendCertificationRemindersCommand extends Command
             $targetDate = $today->copy()->subDays($offset)->format('Y-m-d');
             $certs = Certification::with('user')
                 ->whereDate('expiry_date', $targetDate)
-                ->where(function ($q) {
-                    // Sertifikat yang masih Valid menurut Excel tidak perlu diingatkan
-                    $q->whereNull('excel_status')->orWhere('excel_status', '!=', 'valid');
-                })
                 ->get();
             $this->info("Ditemukan {$certs->count()} sertifikasi pada H+{$offset} ({$targetDate}).");
             foreach ($certs as $cert) {

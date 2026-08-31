@@ -66,32 +66,12 @@ class Certification extends Model
      * Get certification status:
      * - 'expired': < 0 days
      * - 'warning': >= 0 and <= 60 days (Mendekati Expired)
-     * - 'active': > 60 days
-     * - 'active': null (expiry_date is set to null = Permanent / Tidak Berakhir)
-     *
-     * Jika ada excel_status (dari kolom "Status" di Excel), status Excel
-     * menjadi sumber kebenaran dan meng-override perhitungan tanggal.
+     * - 'active': > 60 days atau Permanent (expiry_date is null)
      */
     public function getStatusAttribute(): string
     {
         if (stripos($this->certificate_name, 'Dangerous Good') !== false) {
             return 'active';
-        }
-
-        // Jika excel_status kosong/null, anggap sebagai sertifikasi sekali ambil (Aktif, tidak pernah expired berdasarkan tanggal)
-        if ($this->excel_status === null) {
-            return 'active';
-        }
-
-        // Override dari Excel: valid -> Aktif, expiring -> Akan Expired, expired -> Expired
-        $override = match ($this->excel_status) {
-            'valid' => 'active',
-            'expiring' => 'warning',
-            'expired' => 'expired',
-            default => null,
-        };
-        if ($override !== null) {
-            return $override;
         }
 
         $days = $this->days_remaining;
@@ -107,26 +87,12 @@ class Certification extends Model
     }
 
     /**
-     * Apakah status ini di-override oleh kolom Status di Excel
-     * sehingga berbeda dengan perhitungan murni dari tanggal?
+     * Selalu false karena sistem kini 100% database driven.
      */
     public function getOverriddenByExcelAttribute(): bool
     {
-        if (stripos($this->certificate_name, 'Dangerous Good') !== false) {
-            return false;
-        }
-
-        if ($this->excel_status === null) {
-            return false;
-        }
-
-        $dateBased = $this->days_remaining === null
-            ? 'active'
-            : ($this->days_remaining < 0 ? 'expired' : ($this->days_remaining <= 60 ? 'warning' : 'active'));
-
-        return $this->status !== $dateBased;
+        return false;
     }
-
 
     public function getStatusLabelAttribute(): string
     {
@@ -137,3 +103,4 @@ class Certification extends Model
         };
     }
 }
+
