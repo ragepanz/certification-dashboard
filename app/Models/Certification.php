@@ -49,6 +49,10 @@ class Certification extends Model
      */
     public function getDaysRemainingAttribute(): ?int
     {
+        if (stripos($this->certificate_name, 'Dangerous Good') !== false) {
+            return null;
+        }
+
         if ($this->expiry_date === null) {
             return null;
         }
@@ -70,6 +74,10 @@ class Certification extends Model
      */
     public function getStatusAttribute(): string
     {
+        if (stripos($this->certificate_name, 'Dangerous Good') !== false) {
+            return 'active';
+        }
+
         // Jika excel_status kosong/null, anggap sebagai sertifikasi sekali ambil (Aktif, tidak pernah expired berdasarkan tanggal)
         if ($this->excel_status === null) {
             return 'active';
@@ -104,6 +112,10 @@ class Certification extends Model
      */
     public function getOverriddenByExcelAttribute(): bool
     {
+        if (stripos($this->certificate_name, 'Dangerous Good') !== false) {
+            return false;
+        }
+
         if ($this->excel_status === null) {
             return false;
         }
