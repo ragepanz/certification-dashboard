@@ -9,23 +9,22 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// Temporary one-click database setup route for Vercel
-Route::get('/setup-db', function () {
+// Temporary one-click database seeder route for Vercel
+Route::get('/seed-data', function () {
     try {
-        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
-            '--seed' => true,
-            '--force' => true,
-        ]);
+        ini_set('max_execution_time', 300);
+        $seeder = new \Database\Seeders\DatabaseSeeder();
+        $seeder->run();
         return response()->json([
             'status' => 'success',
-            'message' => 'Database berhasil di-migrate & di-seed secara lengkap!',
-            'output' => \Illuminate\Support\Facades\Artisan::output(),
+            'message' => 'Semua data pegawai, sertifikasi, dan matriks berhasil di-import ke cloud!',
+            'users_count' => \App\Models\User::count(),
+            'certifications_count' => \App\Models\Certification::count(),
         ]);
     } catch (\Throwable $e) {
         return response()->json([
             'status' => 'error',
             'message' => $e->getMessage(),
-            'trace' => $e->getTraceAsString(),
         ], 500);
     }
 });
