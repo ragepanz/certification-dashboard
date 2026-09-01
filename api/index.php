@@ -33,6 +33,18 @@ putenv("APP_ROUTES_CACHE=/tmp/routes.php");
 putenv("APP_SERVICES_CACHE=/tmp/services.php");
 putenv("LOG_CHANNEL=stderr");
 
+if (empty(getenv('SESSION_DRIVER'))) {
+    putenv("SESSION_DRIVER=cookie");
+    $_ENV['SESSION_DRIVER'] = 'cookie';
+    $_SERVER['SESSION_DRIVER'] = 'cookie';
+}
+
+if (empty(getenv('CACHE_STORE'))) {
+    putenv("CACHE_STORE=array");
+    $_ENV['CACHE_STORE'] = 'array';
+    $_SERVER['CACHE_STORE'] = 'array';
+}
+
 // Maintenance check
 if (file_exists($maintenance = __DIR__ . '/../storage/framework/maintenance.php')) {
     require $maintenance;
