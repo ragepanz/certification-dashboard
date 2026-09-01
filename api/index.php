@@ -52,6 +52,15 @@ vercelEnv('QUEUE_CONNECTION', 'sync');
 vercelEnv('BROADCAST_CONNECTION', 'log');
 vercelEnv('FILESYSTEM_DISK', 'local');
 
+// Pass DB credentials explicitly from Vercel system environment
+if ($dbHost = getenv('DB_HOST')) vercelEnv('DB_HOST', $dbHost);
+if ($dbPort = getenv('DB_PORT')) vercelEnv('DB_PORT', $dbPort);
+if ($dbDatabase = getenv('DB_DATABASE')) vercelEnv('DB_DATABASE', $dbDatabase);
+if ($dbUsername = getenv('DB_USERNAME')) vercelEnv('DB_USERNAME', $dbUsername);
+if ($dbPassword = getenv('DB_PASSWORD')) vercelEnv('DB_PASSWORD', $dbPassword);
+if ($dbConn = getenv('DB_CONNECTION')) vercelEnv('DB_CONNECTION', $dbConn);
+if ($appKey = getenv('APP_KEY')) vercelEnv('APP_KEY', $appKey);
+
 // Maintenance check
 if (file_exists($maintenance = __DIR__ . '/../storage/framework/maintenance.php')) {
     require $maintenance;
