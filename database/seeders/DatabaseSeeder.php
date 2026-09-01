@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         $matrixPath = database_path('training_man_matrix.json');
         if (File::exists($matrixPath)) {
             $matrixData = json_decode(File::get($matrixPath), true);
-            $this->command->info("Seeding Job Training Matrix rules...");
+            if ($this->command) $this->command->info("Seeding Job Training Matrix rules...");
             foreach ($matrixData as $jobKey => $trainings) {
                 foreach ($trainings as $trKey => $rule) {
                     \App\Models\JobTrainingMatrix::updateOrCreate(
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
                     );
                 }
             }
-            $this->command->info("Job Training Matrix seeded successfully!");
+            if ($this->command) $this->command->info("Job Training Matrix seeded successfully!");
         }
 
         // 3. Read Excel parsed JSON
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
         if (File::exists($jsonPath)) {
             $data = json_decode(File::get($jsonPath), true);
 
-            $this->command->info("Seeding " . count($data) . " employees and their certifications from Excel data...");
+            if ($this->command) $this->command->info("Seeding " . count($data) . " employees and their certifications from Excel data...");
 
             foreach ($data as $empData) {
                 // Generate clean unique email
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
                 }
             }
 
-            $this->command->info("Excel data seeded successfully!");
+            if ($this->command) $this->command->info("Excel data seeded successfully!");
         }
     }
 }
