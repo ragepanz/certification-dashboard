@@ -9,22 +9,31 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// Temporary one-click database seeder route for Vercel
-Route::get('/seed-data', function () {
+// One-click Total Clean Reset & Seed for Vercel
+Route::get('/reset-database', function () {
     try {
         ini_set('max_execution_time', 300);
+        ini_set('memory_limit', '512M');
+        
+        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
+            '--force' => true,
+        ]);
+        
         $seeder = new \Database\Seeders\DatabaseSeeder();
         $seeder->run();
+        
         return response()->json([
             'status' => 'success',
-            'message' => 'Semua data pegawai, sertifikasi, dan matriks berhasil di-import ke cloud!',
-            'users_count' => \App\Models\User::count(),
-            'certifications_count' => \App\Models\Certification::count(),
+            'message' => 'Database BERHASIL di-reset total dan semua data terisi bersih!',
+            'users_total' => \App\Models\User::count(),
+            'certifications_total' => \App\Models\Certification::count(),
+            'matrices_total' => \App\Models\JobTrainingMatrix::count(),
         ]);
     } catch (\Throwable $e) {
         return response()->json([
             'status' => 'error',
             'message' => $e->getMessage(),
+            'trace' => $e->getTraceAsString(),
         ], 500);
     }
 });
