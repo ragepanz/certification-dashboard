@@ -9,35 +9,6 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-// One-click Total Clean Reset & Seed for Vercel
-Route::get('/reset-database', function () {
-    try {
-        ini_set('max_execution_time', 300);
-        ini_set('memory_limit', '512M');
-        
-        \Illuminate\Support\Facades\Artisan::call('migrate:fresh', [
-            '--force' => true,
-        ]);
-        
-        $seeder = new \Database\Seeders\DatabaseSeeder();
-        $seeder->run();
-        
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Database BERHASIL di-reset total dan semua data terisi bersih!',
-            'users_total' => \App\Models\User::count(),
-            'certifications_total' => \App\Models\Certification::count(),
-            'matrices_total' => \App\Models\JobTrainingMatrix::count(),
-        ]);
-    } catch (\Throwable $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => $e->getMessage(),
-            'trace' => $e->getTraceAsString(),
-        ], 500);
-    }
-});
-
 // Redirect root to login / dashboard
 Route::get('/', function () {
     return auth()->check() ? redirect()->route('dashboard') : redirect()->route('login');
